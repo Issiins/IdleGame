@@ -1,0 +1,16 @@
+using System;
+using Player.Upgrade;
+using UnityEngine;
+
+namespace Upgrade
+{
+    [Serializable]
+    public class ClickEffect : IEffect
+    { 
+        public float _multiplierPerLevel { get; set; }
+        public void Apply(int level, PlayerStats stats)
+        {
+            stats.AddClickMultiplier(_multiplierPerLevel * level);
+        }
+    }
+}
