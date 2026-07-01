@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Upgrade
@@ -10,7 +11,9 @@ namespace Upgrade
             [SerializeField] private string _description;
             [SerializeField] private float _cost;
             [SerializeField] private int _level;
+            [SerializeField] private List<UnlockRequirement>  _unlockRequirements;
             [SerializeReference] public IEffect Effect;
+            public List<UnlockRequirement> UnlockRequirements => _unlockRequirements;
             public string Name => _name;
             public string Description => _description;
             public float Cost => _cost;
