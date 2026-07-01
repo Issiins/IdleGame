@@ -17,7 +17,7 @@ namespace Upgrade
 
         public void LevelUp() => Level++;
         public float CurrentCost => Data.Cost * (Level + 1);
-
+        public bool IsPurchased() => Level > 0;
         public bool IsUnlocked(IReadOnlyList<Upgrade> allUpgrades)
         {
             foreach (var requirement in Data.UnlockRequirements)
