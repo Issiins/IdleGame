@@ -21,7 +21,7 @@
             }
 
             public void AddClickMultiplier(float amount) => ClickMultiplier += amount;
-            public void AddProduction(float amount) => ProductionPerSecond += amount;
+            public void AddProductionMultiplier(float amount) => ProductionPerSecond += amount;
         }
     }
 }

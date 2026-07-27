@@ -3,6 +3,9 @@ using Player.Upgrade;
 
 namespace Upgrade
 {
+    /// <summary>
+    /// Upgrade data container, saves all upgrades 
+    /// </summary>
     public class UpgradeContainer
     {
         private List<Upgrade> _upgrades = new();
@@ -13,7 +16,6 @@ namespace Upgrade
             _stats = stats;
         }
         public void AddUpgrade(Upgrade upgrade) => _upgrades.Add(upgrade);
-
         public void UpdateMultiplier()
         {
             _stats.Reset();

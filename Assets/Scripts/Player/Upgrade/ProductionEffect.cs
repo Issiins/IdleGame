@@ -10,7 +10,7 @@ namespace Upgrade
         private readonly float _multiplierPerLevel;
         public void Apply(int level,  PlayerStats stats)
         {
-            stats.AddProduction(_multiplierPerLevel * level);
+            stats.AddProductionMultiplier(_multiplierPerLevel * level);
         }
     }
 }
