@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Upgrade
 {
+    /// <summary>
+    /// Factory class to create upgrades dynamically from resources folder
+    /// </summary>
     public class UpgradeFactory
     {
         private readonly UpgradeData[] _loadedData;
@@ -12,7 +15,7 @@ namespace Upgrade
 
         public UpgradeFactory()
         {
-            _loadedData = Resources.LoadAll<UpgradeData>("Upgrades");
+            _loadedData = Resources.LoadAll<UpgradeData>("Upgrades"); // Loads all data from the folder "Assets/Resources/Upgrades"
             CreateUpgrades(_loadedData);
         }
 

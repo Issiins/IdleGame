@@ -14,7 +14,7 @@ namespace Upgrade
             [SerializeField] private string _description;
             [SerializeField] private float _cost;
             [SerializeField] private List<UnlockRequirement>  _unlockRequirements;
-            [SerializeReference] public IEffect Effect;
+            [SerializeReference, SubclassSelector] public IEffect Effect;
             public List<UnlockRequirement> UnlockRequirements => _unlockRequirements;
             public string Name => _name;
             public string Description => _description;

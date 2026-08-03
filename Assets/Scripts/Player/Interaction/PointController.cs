@@ -18,7 +18,6 @@ namespace Interaction
         public void OnClick()
         {
             _points += _stats.ClickMultiplier;
-            Debug.Log("Current points after click" + _points);
         }
         private void Update()
         {

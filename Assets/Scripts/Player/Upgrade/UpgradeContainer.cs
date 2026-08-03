@@ -11,18 +11,15 @@ namespace Upgrade
     {
         private List<Upgrade> _upgrades = new();
         private readonly PlayerStats _stats;
-
-
+        
         public UpgradeContainer(PlayerStats stats, List<Upgrade> upgrades)
         {
             _stats = stats;
             foreach (var upgrade in upgrades)
             {
-                AddUpgrade(upgrade);
+                _upgrades.Add(upgrade);
             }
-            Debug.Log($"Loaded {upgrades.Count} upgrades");
         }
-        public void AddUpgrade(Upgrade upgrade) => _upgrades.Add(upgrade);
         public void UpdateMultiplier()
         {
             _stats.Reset();
