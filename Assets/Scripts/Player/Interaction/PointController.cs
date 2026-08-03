@@ -9,10 +9,11 @@ namespace Interaction
         private float _points = 0f;
         private UpgradeContainer _upgradeContainer;
         private readonly PlayerStats _stats = new();
-
+        
         private void Awake()
         {
-            _upgradeContainer = new UpgradeContainer(_stats);
+            UpgradeFactory upgradeFactory = new();
+            _upgradeContainer = new UpgradeContainer(_stats, upgradeFactory.GetUpgrades());
         }
         public void OnClick()
         {

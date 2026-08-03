@@ -7,7 +7,7 @@ namespace Upgrade
     [Serializable]
     public class ProductionEffect : IEffect
     {
-        private readonly float _multiplierPerLevel;
+        private float _multiplierPerLevel;
         public void Apply(int level,  PlayerStats stats)
         {
             stats.AddProductionMultiplier(_multiplierPerLevel * level);

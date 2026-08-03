@@ -6,8 +6,8 @@ namespace Upgrade
 {
     [Serializable]
     public class ClickEffect : IEffect
-    { 
-        public float _multiplierPerLevel { get; set; }
+    {
+        public float _multiplierPerLevel;
         public void Apply(int level, PlayerStats stats)
         {
             stats.AddClickMultiplier(_multiplierPerLevel * level);
