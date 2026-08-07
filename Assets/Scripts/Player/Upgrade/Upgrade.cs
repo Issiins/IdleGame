@@ -27,7 +27,7 @@ namespace Upgrade
             {
                 foreach (var upgrade in allUpgrades)
                 {
-                    if(requirement.Data != upgrade.Data)
+                    if(requirement.Data == upgrade.Data)
                         continue;
                     if(upgrade.Level < requirement.Level)
                         return false;

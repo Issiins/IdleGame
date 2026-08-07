@@ -15,3 +15,13 @@ MonoBehaviour:
   _name: First upgrade
   _description: It adds something
   _cost: 5
+  _unlockRequirements: []
+  Effect:
+    rid: 8188571149391364344
+  references:
+    version: 2
+    RefIds:
+    - rid: 8188571149391364344
+      type: {class: ClickEffect, ns: Upgrade, asm: Assembly-CSharp}
+      data:
+        _multiplierPerLevel: 0

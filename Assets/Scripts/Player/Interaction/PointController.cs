@@ -1,4 +1,5 @@
-﻿using Player.Upgrade;
+﻿using System.Collections;
+using Player.Upgrade;
 using UnityEngine;
 using Upgrade;
 
@@ -6,23 +7,30 @@ namespace Interaction
 {
     public class PointController : MonoBehaviour
     {
-        private float _points = 0f;
+        [SerializeField] private float points = 0f;
         private UpgradeContainer _upgradeContainer;
         private readonly PlayerStats _stats = new();
-        
+        private readonly WaitForSeconds _waitTime = new(1f); 
         private void Awake()
         {
             UpgradeFactory upgradeFactory = new();
             _upgradeContainer = new UpgradeContainer(_stats, upgradeFactory.GetUpgrades());
+            StartCoroutine(nameof(Accumalate));
         }
         public void OnClick()
         {
-            _points += _stats.ClickMultiplier;
+            points += _stats.ClickMultiplier;
         }
-        private void Update()
+        public float GetPoints() => points;
+
+        private IEnumerator Accumalate()
         {
-            _points += _stats.ProductionPerSecond * Time.deltaTime;
+            while (true)
+            {
+                points += _stats.ProductionPerSecond;
+                yield return _waitTime;   
+            }
         }
-        public float GetPoints() => _points;
+        
     }
 }
