@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ed84f9d30a9a94ab80763158e1adc3, type: 3}
   m_Name: TestUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade.UpgradeData
+  _picture: {fileID: 0}
   _name: First upgrade
   _description: It adds something
   _cost: 5
+  _maxLevel: 10
   _unlockRequirements: []
   Effect:
     rid: 8188571149391364344
@@ -23,5 +25,4 @@ MonoBehaviour:
     RefIds:
     - rid: 8188571149391364344
       type: {class: ClickEffect, ns: Upgrade, asm: Assembly-CSharp}
-      data:
-        _multiplierPerLevel: 0
+      data: 
