@@ -18,24 +18,13 @@ namespace Interaction
         private readonly StringBuilder _builder = new();
         private const string Text = "Current point count: ";
         private const string Format = "N0";
-        private readonly WaitForSeconds _delayTime = new(0.1f);
-
-        private void Start()
+        public void UpdateValue()
         {
-            StartCoroutine(UpdateValue());
-        }
-
-        private IEnumerator UpdateValue()
-        {
-            while (true)
-            {
-                _builder.Clear();
-                _builder.Append(Text);
-                _builder.Append(pointController.GetPoints().ToString(Format));
-                pointText.text = _builder.ToString();
-                if(debug) Debug.Log("Point text after update: \n" + pointText.text);
-                yield return _delayTime;
-            }
+            _builder.Clear();
+            _builder.Append(Text);
+            _builder.Append(pointController.GetPoints().ToString(Format));
+            pointText.text = _builder.ToString();
+            if(debug) Debug.Log("Point text after update: \n" + pointText.text);
         }
     }
 }

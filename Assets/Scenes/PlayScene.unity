@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interaction.PointController
   points: 0
+  pointUIController: {fileID: 357372953}
 --- !u!4 &537148996
 Transform:
   m_ObjectHideFlags: 0

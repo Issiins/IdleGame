@@ -9,18 +9,20 @@ namespace Interaction
     public class PointController : MonoBehaviour
     {
         [SerializeField] private float points = 0f;
+        [SerializeField] private PointUiController pointUIController;
         private UpgradeContainer _upgradeContainer;
         private readonly PlayerStats _stats = new();
-        private readonly WaitForSeconds _waitTime = new(1f); 
+        private readonly WaitForSeconds _waitTime = new(1f);  // 1 second
         private void Awake()
         {
             UpgradeFactory upgradeFactory = new();
             _upgradeContainer = new UpgradeContainer(_stats, upgradeFactory.GetUpgrades());
-            StartCoroutine(nameof(Accumalate));
+            StartCoroutine(Accumalate());
         }
         public void OnClick()
         {
             points += _stats.ClickMultiplier;
+            pointUIController.UpdateValue();
         }
         public float GetPoints() => points;
 
@@ -29,6 +31,7 @@ namespace Interaction
             while (true)
             {
                 points += _stats.ProductionPerSecond;
+                pointUIController.UpdateValue();
                 yield return _waitTime;   
             }
         }
