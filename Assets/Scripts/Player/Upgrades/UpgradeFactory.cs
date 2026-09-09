@@ -3,7 +3,7 @@ using Player.Upgrade;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
-namespace Upgrade
+namespace Upgrades
 {
     /// <summary>
     /// Factory class to create upgrades dynamically from resources folder
@@ -11,7 +11,7 @@ namespace Upgrade
     public class UpgradeFactory
     {
         private readonly UpgradeData[] _loadedData;
-        private List<Upgrade> _upgrades = new();
+        private List<UpgradeInstance> _upgrades = new();
 
         public UpgradeFactory()
         {
@@ -24,10 +24,10 @@ namespace Upgrade
             if(_loadedData == null)
                 return;
             foreach (var curr in data)
-                _upgrades.Add(new Upgrade(curr));
+                _upgrades.Add(new UpgradeInstance(curr));
             
         }
-        public List<Upgrade> GetUpgrades()
+        public List<UpgradeInstance> GetUpgrades()
         {
             return _upgrades;
         }

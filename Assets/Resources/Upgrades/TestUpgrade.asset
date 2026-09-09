@@ -19,10 +19,10 @@ MonoBehaviour:
   _maxLevel: 10
   _unlockRequirements: []
   Effect:
-    rid: 8188571149391364344
+    rid: 8188571351219961924
   references:
     version: 2
     RefIds:
-    - rid: 8188571149391364344
-      type: {class: ClickEffect, ns: Upgrade, asm: Assembly-CSharp}
+    - rid: 8188571351219961924
+      type: {class: ClickEffect, ns: Upgrades, asm: Assembly-CSharp}
       data: 

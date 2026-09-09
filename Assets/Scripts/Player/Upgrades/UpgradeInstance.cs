@@ -2,26 +2,25 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Upgrade
+namespace Upgrades
 {
     // Runtime wrapper class
-    public class Upgrade
+    public class UpgradeInstance
     {
         public UpgradeData Data { get; }
-        public int Level { get; private set; } 
+        public byte Level { get; private set; } 
 
-        public Upgrade(UpgradeData data)
+        public UpgradeInstance(UpgradeData data)
         {
             Data = data;
         }
         public void LevelUp() => Level++;
-        public float CurrentCost => Data.Cost * (Level + 1);
+        public int CurrentCost => Data.Cost * (Level + 1);
         public bool IsPurchased() => Level > 0;
-        
         /*Does not recursively check if required upgrades are themselves unlocked.
         * If recursive checking is added later, validate for circular dependencies first.
         */
-        public bool IsUnlocked(IReadOnlyList<Upgrade> allUpgrades)
+        public bool IsUnlocked(IReadOnlyList<UpgradeInstance> allUpgrades)
         {
             foreach (var requirement in Data.UnlockRequirements)
             {

@@ -1,6 +1,6 @@
-using Player.Upgrade;
+using Player;
 
-namespace Upgrade
+namespace Upgrades
 {
     public interface IEffect
     {

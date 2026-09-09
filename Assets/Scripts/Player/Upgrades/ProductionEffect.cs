@@ -1,8 +1,8 @@
 using System;
-using Player.Upgrade;
+using Player;
 using UnityEngine;
 
-namespace Upgrade
+namespace Upgrades
 {
     [Serializable]
     public class ProductionEffect : IEffect

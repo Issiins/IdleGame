@@ -1,7 +1,7 @@
 ﻿using System;
 using Unity.VisualScripting;
 
-namespace Upgrade
+namespace Upgrades
 {
     [Serializable]
     public class UnlockRequirement

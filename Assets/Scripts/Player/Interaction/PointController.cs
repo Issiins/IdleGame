@@ -1,7 +1,8 @@
 ﻿using System.Collections;
-using Player.Upgrade;
+using System.Collections.Generic;
+using Player;
 using UnityEngine;
-using Upgrade;
+using Upgrades;
 
 namespace Interaction
 {
@@ -31,6 +32,15 @@ namespace Interaction
                 yield return _waitTime;   
             }
         }
-        
+
+        public bool TrySpendPoints(float amount)
+        {
+            if(amount > points) 
+                return false;
+            points -= amount;
+            return true;
+        }
+        public IReadOnlyList<UpgradeInstance> GetUpgrades() => _upgradeContainer.upgrades;
+        public UpgradeContainer GetUpgradeContainer() => _upgradeContainer;
     }
 }

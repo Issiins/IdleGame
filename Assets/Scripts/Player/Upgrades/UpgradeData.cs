@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
-namespace Upgrade
+namespace Upgrades
 {
         /// <summary>
         /// Constant data for upgrade class.
@@ -11,18 +12,19 @@ namespace Upgrade
         [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Upgrades/Upgrade Data")]
         public class UpgradeData : ScriptableObject
         {
-            [SerializeField] private Sprite _picture;
+            [SerializeField] private Image _picture;
             [SerializeField] private string _name;
             [SerializeField] private string _description;
-            [SerializeField] private float _cost;
+            [SerializeField] private int _cost;
             [SerializeField] private byte _maxLevel;
             [SerializeField] private List<UnlockRequirement>  _unlockRequirements;
             [SerializeReference, SubclassSelector] public IEffect Effect;
-            public Sprite Picture => _picture;
+            public Image Picture => _picture;
             public List<UnlockRequirement> UnlockRequirements => _unlockRequirements;
+            public byte MaxLevel => _maxLevel;
             public string Name => _name;
             public string Description => _description;
-            public float Cost => _cost;
+            public int Cost => _cost;
         }
     
 }
