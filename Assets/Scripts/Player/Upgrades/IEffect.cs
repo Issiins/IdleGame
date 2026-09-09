@@ -4,6 +4,6 @@ namespace Upgrades
 {
     public interface IEffect
     {
-        void Apply(int level, PlayerStats stats);
+        void Apply(byte level, PlayerStats stats);
     }
 }

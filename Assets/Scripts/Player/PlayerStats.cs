@@ -1,4 +1,6 @@
-﻿namespace Player
+﻿using UnityEngine;
+
+namespace Player
 {
     public class PlayerStats
     {
@@ -19,7 +21,10 @@
         }
 
         public void AddClickMultiplier(float amount) => ClickMultiplier += amount;
-        public void AddProductionMultiplier(float amount) => ProductionPerSecond += amount;
+        public void AddProductionMultiplier(float amount)
+        {
+            ProductionPerSecond += amount;
+        }
     }
 
     
