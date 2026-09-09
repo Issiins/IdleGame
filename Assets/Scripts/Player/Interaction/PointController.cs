@@ -16,7 +16,7 @@ namespace Interaction
         private void Awake()
         {
             UpgradeFactory upgradeFactory = new();
-            _upgradeContainer = new UpgradeContainer(_stats, upgradeFactory.GetUpgrades());
+            _upgradeContainer = new UpgradeContainer(_stats, upgradeFactory.GetUpgrades(), pointUIController);
             StartCoroutine(Accumalate());
         }
         public void OnClick()
