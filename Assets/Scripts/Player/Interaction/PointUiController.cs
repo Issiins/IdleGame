@@ -16,7 +16,8 @@ namespace Interaction
         [SerializeField] private bool debug = true;
 
         private readonly StringBuilder _builder = new();
-        private const string TEXT = "Current point count: ";
+        private const string Text = "Current point count: ";
+        private const string Format = "N0";
         private readonly WaitForSeconds _delayTime = new(0.1f);
 
         private void Start()
@@ -29,8 +30,8 @@ namespace Interaction
             while (true)
             {
                 _builder.Clear();
-                _builder.Append(TEXT);
-                _builder.Append(pointController.GetPoints().ToString("N0"));
+                _builder.Append(Text);
+                _builder.Append(pointController.GetPoints().ToString(Format));
                 pointText.text = _builder.ToString();
                 if(debug) Debug.Log("Point text after update: \n" + pointText.text);
                 yield return _delayTime;
