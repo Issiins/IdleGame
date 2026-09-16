@@ -8,10 +8,9 @@ namespace Upgrades
     [Serializable]
     public class ProductionEffect : IEffect
     {
-        private const float MultiplierPerLevel = 2f;
-        public void Apply(byte level,  PlayerStats stats)
+        public void Apply(byte level,  PlayerStats stats, float multiplierPerLevel)
         {
-            var bonus = level * MultiplierPerLevel;
+            var bonus = level * multiplierPerLevel;
             stats.AddProductionMultiplier(bonus);
         }
     }

@@ -17,6 +17,7 @@ MonoBehaviour:
   _description: It adds something
   _cost: 5
   _maxLevel: 10
+  _multiplier: 2
   _unlockRequirements: []
   Effect:
     rid: 8188571351219961924

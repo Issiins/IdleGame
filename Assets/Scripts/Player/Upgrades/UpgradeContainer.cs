@@ -25,12 +25,12 @@ namespace Upgrades
             }
             _pointUiController = pointUiController;
         }
-        public void UpdateMultiplier()
+        private void UpdateMultiplier()
         {
             _stats.Reset();
             foreach (var upgrade in _upgrades)
             {
-                upgrade.Data.Effect.Apply(upgrade.Level, _stats);
+                upgrade.Data.Effect.Apply(upgrade.Level, _stats, upgrade.Data.Multiplier);
             }
         }
 

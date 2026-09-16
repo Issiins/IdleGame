@@ -17,6 +17,7 @@ MonoBehaviour:
   _description: Unlocks only after TestUpgrade is purchased
   _cost: 20
   _maxLevel: 5
+  _multiplier: 1
   _unlockRequirements:
   - Data: {fileID: 11400000, guid: 3c653cbdaa7d849418c1e67f2c9c384d, type: 2}
     Level: 5

@@ -17,6 +17,7 @@ namespace Upgrades
             [SerializeField] private string _description;
             [SerializeField] private int _cost;
             [SerializeField] private byte _maxLevel;
+            [SerializeField] private float _multiplier;
             [SerializeField] private List<UnlockRequirement>  _unlockRequirements;
             [SerializeReference, SubclassSelector] public IEffect Effect;
             public Image Picture => _picture;
@@ -24,6 +25,7 @@ namespace Upgrades
             public byte MaxLevel => _maxLevel;
             public string Name => _name;
             public string Description => _description;
+            public float Multiplier => _multiplier;
             public int Cost => _cost;
         }
     
