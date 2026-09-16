@@ -24,8 +24,6 @@ namespace Interaction
             points += _stats.ClickMultiplier;
             pointUIController.UpdateValue();
         }
-        public float GetPoints() => points;
-
         private IEnumerator Accumalate()
         {
             while (true)
@@ -43,7 +41,9 @@ namespace Interaction
             points -= amount;
             return true;
         }
+        public float GetPoints() => points;
         public IReadOnlyList<UpgradeInstance> GetUpgrades() => _upgradeContainer.upgrades;
         public UpgradeContainer GetUpgradeContainer() => _upgradeContainer;
+        public void SetPoints(float amount) => points = amount;
     }
 }

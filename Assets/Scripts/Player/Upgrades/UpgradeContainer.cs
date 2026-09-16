@@ -25,7 +25,7 @@ namespace Upgrades
             }
             _pointUiController = pointUiController;
         }
-        private void UpdateMultiplier()
+        public void UpdateMultiplier()
         {
             _stats.Reset();
             foreach (var upgrade in _upgrades)

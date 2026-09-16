@@ -6,7 +6,7 @@ namespace Upgrades
     public class UpgradeInstance
     {
         public UpgradeData Data { get; }
-        public byte Level { get; private set; } 
+        public byte Level { get; set; } 
 
         public UpgradeInstance(UpgradeData data)
         {
