@@ -45,11 +45,13 @@ namespace Player.Upgrade.UI
             FormatText(_upgrade);
             bool unlocked = _upgrade.IsUnlocked(_pointController.GetUpgrades());
             bool isMaxedLevel = _upgrade.Level == _upgrade.Data.MaxLevel;
-            if (isMaxedLevel)
-            {
-                purchaseButton.interactable = false;
-                cost.text = "Upgrade \n MAXED";
-            }
+            gameObject.SetActive(unlocked);
+            if(!unlocked) return;
+            if(!isMaxedLevel)
+                return;
+            purchaseButton.interactable = false;
+            cost.text = "Upgrade \n MAXED";
+            
         }
         private void OnPurchaseClicked()
         {

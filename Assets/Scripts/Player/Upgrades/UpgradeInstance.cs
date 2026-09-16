@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
 
 namespace Upgrades
 {
@@ -24,13 +22,17 @@ namespace Upgrades
         {
             foreach (var requirement in Data.UnlockRequirements)
             {
+                bool met = false;
                 foreach (var upgrade in allUpgrades)
                 {
-                    if(requirement.Data == upgrade.Data)
+                    if(requirement.Data != upgrade.Data)
                         continue;
-                    if(upgrade.Level < requirement.Level)
-                        return false;
+                    if(upgrade.Level >= requirement.Level)
+                        met = true;
+                    break;
                 }
+                if(!met)
+                    return false;
             }
             return true;
         }
