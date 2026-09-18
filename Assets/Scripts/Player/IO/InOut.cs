@@ -31,7 +31,10 @@ namespace Player
             for (var i = 0; i < data.upgrades.Length; i++)
             {
                 if (upgradeContainer.upgrades[i].Data.Name != data.upgrades[i].upgradeName) continue;
-                upgradeContainer.upgrades[i].Level = data.upgrades[i].upgradeLevel;
+                bool levelOverCap = upgradeContainer.upgrades[i].Data.MaxLevel < data.upgrades[i].upgradeLevel; // checks if max level was changed
+                upgradeContainer.upgrades[i].Level = levelOverCap ? 
+                    upgradeContainer.upgrades[i].Data.MaxLevel : 
+                    data.upgrades[i].upgradeLevel;
             }
             upgradeContainer.UpdateMultiplier();
         }
