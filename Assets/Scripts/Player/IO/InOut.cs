@@ -9,7 +9,7 @@ namespace Player
     // TODO make it load file with new changes. Add response in the UI when the game is saved and loaded
     public class InOut
     {
-        private const string PATH = "../../../Resources";
+        private static readonly string PATH = Application.persistentDataPath;
         public void Save(PointController pointController, UpgradeContainer upgradeContainer)
         {
             SaveFileDTO saveFileDto = new()
@@ -18,13 +18,13 @@ namespace Player
                 upgrades = upgradeContainer.upgrades.Select(upgrade => new UpgradeDTO(upgrade.Data.Name, upgrade.Level)).ToArray()
             };
             var jsonContent = JsonUtility.ToJson(saveFileDto);
-            using var write = new StreamWriter($"{PATH}/save.json");
+            using var write = new StreamWriter(GetFullPath("save.json"));
             write.Write(jsonContent);
             write.Close();
         }
         public void Load(PointController pointController, UpgradeContainer upgradeContainer)
         {
-            string jsonContent = File.ReadAllText($"{PATH}/save.json");
+            string jsonContent = File.ReadAllText(GetFullPath("save.json"));
             var data = JsonUtility.FromJson<SaveFileDTO>(jsonContent);
             pointController.SetPoints(data.points);
             // only works if no new upgrades have been added
@@ -38,5 +38,6 @@ namespace Player
             }
             upgradeContainer.UpdateMultiplier();
         }
+        private string GetFullPath(string fileName) => Path.Combine(PATH, fileName);
     }
 }
