@@ -1,0 +1,49 @@
+﻿using System;
+using System.Drawing;
+using System.Reflection.Metadata.Ecma335;
+using EditorScripts;
+using Interaction;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using Upgrades;
+
+namespace Player
+{
+    public class InputController : MonoBehaviour
+    {
+        [SerializeField] private InputActionAsset inputAction;
+        [SerializeField] private PointController pointController;
+        [SerializeField] private SceneReference mainMenu; 
+        private InputAction _saveAction;
+        private InputAction _goBackAction;
+        private InOut _io;
+        private void Awake()
+        {
+            _io = new InOut();
+            var map = inputAction.FindActionMap("Player");
+            _saveAction = map.FindAction("Save");
+            _goBackAction = map.FindAction("Escape");
+        }
+        private void OnEnable()
+        {
+            inputAction.Enable();
+            _saveAction.performed += OnSave;
+            _goBackAction.performed += OnBack;
+        }
+        private void OnDisable()
+        {
+            inputAction.Disable();
+            _saveAction.performed -= OnSave;
+            _goBackAction.performed -= OnBack;
+        }
+
+        private void OnSave(InputAction.CallbackContext ctx) =>
+            _io.Save(pointController, pointController.GetUpgradeContainer());
+        private void OnBack(InputAction.CallbackContext ctx) => SceneManager.LoadScene(mainMenu.name);
+        private void OnValidate()
+        {
+            mainMenu?.Validate();
+        }
+    }
+}
