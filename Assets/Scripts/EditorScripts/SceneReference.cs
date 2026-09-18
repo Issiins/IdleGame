@@ -11,7 +11,7 @@ namespace EditorScripts
         [SerializeField] private SceneAsset sceneAsset;
         #endif
         [SerializeField, HideInInspector] private string sceneName;
-        public string Name => sceneName;
+        public string name => sceneName;
         #if UNITY_EDITOR
         public void Validate()
         {

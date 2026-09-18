@@ -21,7 +21,7 @@ namespace Buttons
 
         public void OnPressPlayButton()
         {
-            SceneManager.LoadScene(playScene.Name);
+            SceneManager.LoadScene(playScene.name);
         }
     }
 }
