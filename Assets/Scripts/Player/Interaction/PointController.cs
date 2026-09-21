@@ -44,6 +44,7 @@ namespace Interaction
         public float GetPoints() => points;
         public IReadOnlyList<UpgradeInstance> GetUpgrades() => _upgradeContainer.upgrades;
         public UpgradeContainer GetUpgradeContainer() => _upgradeContainer;
+        public PointUiController GetPointUIController() => pointUIController;
         public void SetPoints(float amount) => points = amount;
     }
 }

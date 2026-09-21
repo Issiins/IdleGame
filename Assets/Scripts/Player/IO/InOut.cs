@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Interaction;
 using UnityEngine;
@@ -34,16 +35,20 @@ namespace Player
             string jsonContent = File.ReadAllText(GetFullPath("save.json"));
             var data = JsonUtility.FromJson<SaveFileDTO>(jsonContent);
             _pointController.SetPoints(data.points);
-            // only works if no new upgrades have been added
-            for (var i = 0; i < data.upgrades.Length; i++)
+            var upgradeByName = new Dictionary<string, UpgradeInstance>(_upgradeContainer.upgrades.Count); 
+            foreach(var upgrade in _upgradeContainer.upgrades)
+                upgradeByName[upgrade.Data.Name] = upgrade;
+            foreach (var savedUpgrade in data.upgrades)
             {
-                if (_upgradeContainer.upgrades[i].Data.Name != data.upgrades[i].upgradeName) continue;
-                bool levelOverCap = _upgradeContainer.upgrades[i].Data.MaxLevel < data.upgrades[i].upgradeLevel; // checks if max level was changed
-                _upgradeContainer.upgrades[i].Level = levelOverCap ? 
-                    _upgradeContainer.upgrades[i].Data.MaxLevel : 
-                    data.upgrades[i].upgradeLevel;
+                if (!upgradeByName.TryGetValue(savedUpgrade.upgradeName, out var upgrade))
+                    continue; 
+                bool levelOverCap = upgrade.Data.MaxLevel < savedUpgrade.upgradeLevel; // checks if max level was changed
+                    upgrade.Level = levelOverCap ? 
+                    upgrade.Data.MaxLevel : 
+                    savedUpgrade.upgradeLevel;
             }
             _upgradeContainer.UpdateMultiplier();
+            _pointController.GetPointUIController().UpdateValue();
         }
         private string GetFullPath(string fileName) => Path.Combine(PATH, fileName);
     }
