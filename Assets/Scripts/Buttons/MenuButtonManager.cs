@@ -10,9 +10,9 @@ namespace Buttons
         [SerializeField] private SceneReference playScene;
         private void OnValidate()
         {
-        #if UNITY_EDITOR
+            #if UNITY_EDITOR
             playScene.Validate();
-        #endif
+            #endif
         }
 
         public void OnPressQuitButton()

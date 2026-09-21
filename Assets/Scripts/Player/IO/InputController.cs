@@ -41,9 +41,5 @@ namespace Player
         private void OnSave(InputAction.CallbackContext ctx) =>
             _io.Save();
         private void OnBack(InputAction.CallbackContext ctx) => SceneManager.LoadScene(mainMenu.name);
-        private void OnValidate()
-        {
-            mainMenu?.Validate();
-        }
     }
 }
