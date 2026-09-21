@@ -13,14 +13,14 @@ namespace Player
     public class InputController : MonoBehaviour
     {
         [SerializeField] private InputActionAsset inputAction;
-        [SerializeField] private PointController pointController;
         [SerializeField] private SceneReference mainMenu; 
         private InputAction _saveAction;
         private InputAction _goBackAction;
         private InOut _io;
         private void Awake()
         {
-            _io = new InOut();
+            var pointController = FindAnyObjectByType<PointController>();
+            _io = new InOut(pointController, pointController.GetUpgradeContainer());
             var map = inputAction.FindActionMap("Player");
             _saveAction = map.FindAction("Save");
             _goBackAction = map.FindAction("Escape");
@@ -39,7 +39,7 @@ namespace Player
         }
 
         private void OnSave(InputAction.CallbackContext ctx) =>
-            _io.Save(pointController, pointController.GetUpgradeContainer());
+            _io.Save();
         private void OnBack(InputAction.CallbackContext ctx) => SceneManager.LoadScene(mainMenu.name);
         private void OnValidate()
         {
