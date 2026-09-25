@@ -24,8 +24,10 @@ namespace Upgrades
             if(_loadedData == null)
                 return;
             foreach (var curr in data)
+            {
+                if (!curr.IsValid()) continue;
                 _upgrades.Add(new UpgradeInstance(curr));
-            
+            }
         }
         public List<UpgradeInstance> GetUpgrades()
         {

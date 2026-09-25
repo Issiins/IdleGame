@@ -13,7 +13,7 @@ namespace Upgrades
             Data = data;
         }
         public void LevelUp() => Level++;
-        public int CurrentCost => Data.Cost * (Level + 1);
+        public int CurrentCost => Data.cost * (Level + 1);
         /// <summary>
         /// Checks level requirements if upgrade can be unlocked
         /// </summary>
@@ -21,7 +21,7 @@ namespace Upgrades
         /// <returns>returns true if level is above or equal to requirement</returns>
         public bool IsUnlockable(IReadOnlyList<UpgradeInstance> allUpgrades)
         {
-            foreach (var requirement in Data.UnlockRequirements)
+            foreach (var requirement in Data.unlockRequirements)
             {
                 bool met = false;
                 foreach (var upgrade in allUpgrades)

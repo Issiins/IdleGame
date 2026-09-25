@@ -23,7 +23,7 @@ namespace Player
             SaveFileDTO saveFileDto = new()
             {
                 points = _pointController.GetPoints(),
-                upgrades = _upgradeContainer.upgrades.Select(upgrade => new UpgradeDTO(upgrade.Data.Name, upgrade.Level)).ToArray()
+                upgrades = _upgradeContainer.upgrades.Select(upgrade => new UpgradeDTO(upgrade.Data.name, upgrade.Level)).ToArray()
             };
             var jsonContent = JsonUtility.ToJson(saveFileDto);
             using var write = new StreamWriter(GetFullPath("save.json"));
@@ -37,14 +37,14 @@ namespace Player
             _pointController.SetPoints(data.points);
             var upgradeByName = new Dictionary<string, UpgradeInstance>(_upgradeContainer.upgrades.Count); 
             foreach(var upgrade in _upgradeContainer.upgrades)
-                upgradeByName[upgrade.Data.Name] = upgrade;
+                upgradeByName[upgrade.Data.name] = upgrade;
             foreach (var savedUpgrade in data.upgrades)
             {
                 if (!upgradeByName.TryGetValue(savedUpgrade.upgradeName, out var upgrade))
                     continue; 
-                bool levelOverCap = upgrade.Data.MaxLevel < savedUpgrade.upgradeLevel; // checks if max level was changed
+                bool levelOverCap = upgrade.Data.maxLevel < savedUpgrade.upgradeLevel; // checks if max level was changed
                     upgrade.Level = levelOverCap ? 
-                    upgrade.Data.MaxLevel : 
+                    upgrade.Data.maxLevel : 
                     savedUpgrade.upgradeLevel;
             }
             _upgradeContainer.UpdateMultiplier();

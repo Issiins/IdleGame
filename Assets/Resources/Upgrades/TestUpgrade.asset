@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ed84f9d30a9a94ab80763158e1adc3, type: 3}
   m_Name: TestUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade.UpgradeData
-  _picture: {fileID: 0}
-  _name: First upgrade
-  _description: It adds something
-  _cost: 5
-  _maxLevel: 10
-  _multiplier: 2
-  _unlockRequirements: []
-  Effect:
-    rid: 8188571351219961924
+  <icon>k__BackingField: {fileID: 0}
+  <name>k__BackingField: FirstUpgrade
+  <description>k__BackingField: Testing this upgrade
+  <cost>k__BackingField: 5
+  <maxLevel>k__BackingField: 10
+  <multiplier>k__BackingField: 2
+  <unlockRequirements>k__BackingField: []
+  effect:
+    rid: 1674781091602628684
   references:
     version: 2
     RefIds:
-    - rid: 8188571351219961924
+    - rid: 1674781091602628684
       type: {class: ClickEffect, ns: Upgrades, asm: Assembly-CSharp}
       data: 

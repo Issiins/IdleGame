@@ -30,7 +30,7 @@ namespace Upgrades
             _stats.Reset();
             foreach (var upgrade in _upgrades)
             {
-                upgrade.Data.Effect.Apply(upgrade.Level, _stats, upgrade.Data.Multiplier);
+                upgrade.Data.effect.Apply(upgrade.Level, _stats, upgrade.Data.multiplier);
             }
         }
 

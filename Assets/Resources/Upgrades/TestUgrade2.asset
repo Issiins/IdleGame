@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ed84f9d30a9a94ab80763158e1adc3, type: 3}
   m_Name: TestUgrade2
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
-  _picture: {fileID: 0}
-  _name: Auto Upgrade
-  _description: Unlocks only after TestUpgrade is purchased
-  _cost: 20
-  _maxLevel: 5
-  _multiplier: 1
-  _unlockRequirements:
+  <icon>k__BackingField: {fileID: 0}
+  <name>k__BackingField: SecondUpgrade
+  <description>k__BackingField: Second upgrade, testing unlock system
+  <cost>k__BackingField: 25
+  <maxLevel>k__BackingField: 5
+  <multiplier>k__BackingField: 1
+  <unlockRequirements>k__BackingField:
   - Data: {fileID: 11400000, guid: 3c653cbdaa7d849418c1e67f2c9c384d, type: 2}
     Level: 5
-  Effect:
-    rid: 1674780727344103492
+  effect:
+    rid: 1674781091602628685
   references:
     version: 2
     RefIds:
-    - rid: 1674780727344103492
+    - rid: 1674781091602628685
       type: {class: ProductionEffect, ns: Upgrades, asm: Assembly-CSharp}
       data: 

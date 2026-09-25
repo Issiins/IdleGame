@@ -12,21 +12,20 @@ namespace Upgrades
         [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Upgrades/Upgrade Data")]
         public class UpgradeData : ScriptableObject
         {
-            [SerializeField] private Image _picture;
-            [SerializeField] private string _name;
-            [SerializeField] private string _description;
-            [SerializeField] private int _cost;
-            [SerializeField] private byte _maxLevel;
-            [SerializeField] private float _multiplier;
-            [SerializeField] private List<UnlockRequirement>  _unlockRequirements;
-            [SerializeReference, SubclassSelector] public IEffect Effect;
-            public Image Picture => _picture;
-            public List<UnlockRequirement> UnlockRequirements => _unlockRequirements;
-            public byte MaxLevel => _maxLevel;
-            public string Name => _name;
-            public string Description => _description;
-            public float Multiplier => _multiplier;
-            public int Cost => _cost;
+            [field: SerializeField] public Sprite icon { get; private set; }
+            [field: SerializeField] public new string name { get; private set; }
+            [field: SerializeField] public new string description  { get; private set; }
+            [field: SerializeField] public int cost { get; private set; }
+            [field: SerializeField] public byte maxLevel { get; private set; }
+            [field: SerializeField] public float multiplier { get; private set; }
+            [field: SerializeField] public List<UnlockRequirement>  unlockRequirements { get; private set; }
+            [SerializeReference, SubclassSelector] public IEffect effect;
+            public bool IsValid() =>
+                effect != null &&
+                !string.IsNullOrEmpty(name) &&
+                multiplier > 0 &&
+                maxLevel > 0 &&
+                cost > 0;
         }
     
 }
