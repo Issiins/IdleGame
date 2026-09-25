@@ -14,11 +14,12 @@ namespace Upgrades
         }
         public void LevelUp() => Level++;
         public int CurrentCost => Data.Cost * (Level + 1);
-        public bool IsPurchased() => Level > 0;
-        /*Does not recursively check if required upgrades are themselves unlocked.
-        * If recursive checking is added later, validate for circular dependencies first.
-        */
-        public bool IsUnlocked(IReadOnlyList<UpgradeInstance> allUpgrades)
+        /// <summary>
+        /// Checks level requirements if upgrade can be unlocked
+        /// </summary>
+        /// <param name="allUpgrades">List of all upgrades</param>
+        /// <returns>returns true if level is above or equal to requirement</returns>
+        public bool IsUnlockable(IReadOnlyList<UpgradeInstance> allUpgrades)
         {
             foreach (var requirement in Data.UnlockRequirements)
             {

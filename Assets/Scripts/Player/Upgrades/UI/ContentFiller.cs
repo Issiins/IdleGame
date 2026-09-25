@@ -24,6 +24,9 @@ namespace Player.Upgrade.UI
             _contentsTransform = gameObject.transform;
             FillContent();
         }
+        /// <summary>
+        /// Refreshes whole shop UI
+        /// </summary>
         private void RefreshUI()
         {
             foreach (UpgradeContent content in _contents)

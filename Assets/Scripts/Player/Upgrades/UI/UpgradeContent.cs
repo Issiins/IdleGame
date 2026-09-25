@@ -40,10 +40,13 @@ namespace Player.Upgrade.UI
             SetValues(_upgrade);
             Refresh();
         }
+        /// <summary>
+        /// Refreshes upgrade UI in the shop
+        /// </summary>
         public void Refresh()
         {
             FormatText(_upgrade);
-            bool unlocked = _upgrade.IsUnlocked(_pointController.GetUpgrades());
+            bool unlocked = _upgrade.IsUnlockable(_pointController.GetUpgrades());
             bool isMaxedLevel = _upgrade.Level == _upgrade.Data.MaxLevel;
             gameObject.SetActive(unlocked);
             if(!unlocked) return;
@@ -57,6 +60,5 @@ namespace Player.Upgrade.UI
         {
             _pointController.GetUpgradeContainer().TryPurchase(_upgrade, _pointController);
         }
-        
     }
 }
