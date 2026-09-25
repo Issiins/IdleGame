@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Interaction;
+using UI;
 using UnityEngine;
 using Upgrades;
 
@@ -13,10 +14,12 @@ namespace Player
         private static readonly string PATH = Application.persistentDataPath;
         private readonly PointController _pointController;
         private readonly UpgradeContainer _upgradeContainer;
-        public InOut(PointController pointController, UpgradeContainer upgradeContainer)
+        private readonly Message _message;
+        public InOut(PointController pointController, UpgradeContainer upgradeContainer, Message message)
         {
             _pointController = pointController;
             _upgradeContainer = upgradeContainer;
+            _message = message;
         }
         public void Save()
         {
@@ -29,6 +32,7 @@ namespace Player
             using var write = new StreamWriter(GetFullPath("save.json"));
             write.Write(jsonContent);
             write.Close();
+            _message.ShowMessage("Saved Successfully!");
         }
         public void Load()
         {
@@ -49,6 +53,7 @@ namespace Player
             }
             _upgradeContainer.UpdateMultiplier();
             _pointController.GetPointUIController().UpdateValue();
+            _message.ShowMessage("Loaded Successfully!");
         }
         private string GetFullPath(string fileName) => Path.Combine(PATH, fileName);
     }

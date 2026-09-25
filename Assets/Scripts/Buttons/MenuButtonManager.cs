@@ -1,6 +1,7 @@
 ﻿using EditorScripts;
 using Interaction;
 using Player;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace Buttons
@@ -33,9 +34,10 @@ namespace Buttons
         {
             SceneManager.sceneLoaded -= OnPlaySceneLoaded;
             PointController pointController = FindAnyObjectByType<PointController>();
+            Message message = FindAnyObjectByType<Message>();
             if (pointController == null)
                 return;
-            InOut io = new InOut(pointController, pointController.GetUpgradeContainer());
+            InOut io = new InOut(pointController, pointController.GetUpgradeContainer(), message);
             io.Load();
         }
     }
