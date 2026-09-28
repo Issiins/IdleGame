@@ -34,8 +34,8 @@ namespace Buttons
         {
             SceneManager.sceneLoaded -= OnPlaySceneLoaded;
             PointController pointController = FindAnyObjectByType<PointController>();
-            Message message = FindAnyObjectByType<Message>();
-            if (pointController == null)
+            Message message = FindAnyObjectByType<Message>(FindObjectsInactive.Include);
+            if (pointController == null || message == null)
                 return;
             InOut io = new InOut(pointController, pointController.GetUpgradeContainer(), message);
             io.Load();
