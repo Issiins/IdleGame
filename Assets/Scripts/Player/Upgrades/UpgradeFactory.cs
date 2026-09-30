@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Player.Upgrade;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 namespace Upgrades

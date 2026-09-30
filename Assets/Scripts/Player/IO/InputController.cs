@@ -1,14 +1,8 @@
-﻿using System;
-using System.Drawing;
-using System.Reflection.Metadata.Ecma335;
-using EditorScripts;
-using Interaction;
+﻿using Interaction;
 using Player.States;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using Upgrades;
 
 namespace Player
 {

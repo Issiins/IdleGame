@@ -1,5 +1,4 @@
-﻿using System;
-using EditorScripts;
+﻿using EditorScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

@@ -1,6 +1,5 @@
 using System;
 using Player;
-using UnityEngine;
 
 namespace Upgrades
 {

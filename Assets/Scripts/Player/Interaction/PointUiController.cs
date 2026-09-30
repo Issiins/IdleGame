@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using Player.Upgrade;
+﻿using System.Text;
 using TMPro;
 using UnityEngine;
 
