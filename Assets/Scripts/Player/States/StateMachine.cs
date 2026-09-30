@@ -6,6 +6,7 @@ namespace Player.States
     public class StateMachine
     {
         private State _currentState;
+        public State CurrentState() => _currentState;
         public StateMachine(State initState)
         {
             EnterState(initState);

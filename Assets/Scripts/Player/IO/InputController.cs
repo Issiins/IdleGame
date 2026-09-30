@@ -15,9 +15,7 @@ namespace Player
     public class InputController : MonoBehaviour
     {
         [SerializeField] private InputActionAsset inputAction;
-        [SerializeField] private SceneReference mainMenu;
         [SerializeField] private Message message;
-        [SerializeField] private Shop shop;
         [SerializeField] private StateMachineController  stateMachine;
         private InputAction _saveAction;
         private InputAction _goBackAction;
@@ -47,9 +45,12 @@ namespace Player
             _onShopAction.performed -= OnShopMenu;
         }
 
-        private void OnSave(InputAction.CallbackContext ctx) =>
+        private void OnSave(InputAction.CallbackContext ctx)
+        {
+            if(!stateMachine.CanSave) return; 
             _io.Save();
-        private void OnBack(InputAction.CallbackContext ctx) => SceneManager.LoadScene(mainMenu.name);
-        private void OnShopMenu(InputAction.CallbackContext ctx) => shop.ChangeShopMenu();
+        }
+        private void OnBack(InputAction.CallbackContext ctx) => stateMachine.Escape();
+        private void OnShopMenu(InputAction.CallbackContext ctx) => stateMachine.ToggleShop();
     }
 }
