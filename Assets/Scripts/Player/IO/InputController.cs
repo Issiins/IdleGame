@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Reflection.Metadata.Ecma335;
 using EditorScripts;
 using Interaction;
+using Player.States;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,7 @@ namespace Player
         [SerializeField] private SceneReference mainMenu;
         [SerializeField] private Message message;
         [SerializeField] private Shop shop;
+        [SerializeField] private StateMachineController  stateMachine;
         private InputAction _saveAction;
         private InputAction _goBackAction;
         private InputAction _onShopAction;
