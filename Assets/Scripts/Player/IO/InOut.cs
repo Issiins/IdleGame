@@ -12,6 +12,7 @@ namespace Player
     public class InOut
     {
         private static readonly string PATH = Application.persistentDataPath;
+        private static readonly string FILENAME = "save.json";
         private readonly PointController _pointController;
         private readonly UpgradeContainer _upgradeContainer;
         private readonly Message _message;
@@ -26,17 +27,18 @@ namespace Player
             SaveFileDTO saveFileDto = new()
             {
                 points = _pointController.GetPoints(),
-                upgrades = _upgradeContainer.upgrades.Select(upgrade => new UpgradeDTO(upgrade.Data.name, upgrade.Level)).ToArray()
+                upgrades = _upgradeContainer.upgrades.Select(upgrade => 
+                    new UpgradeDTO(upgrade.Data.name, upgrade.Level)).ToArray()
             };
             var jsonContent = JsonUtility.ToJson(saveFileDto);
-            using var write = new StreamWriter(GetFullPath("save.json"));
+            using var write = new StreamWriter(GetFullPath(FILENAME));
             write.Write(jsonContent);
             write.Close();
             _message.ShowMessage("Saved Successfully!");
         }
         public void Load()
         {
-            string jsonContent = File.ReadAllText(GetFullPath("save.json"));
+            string jsonContent = File.ReadAllText(GetFullPath(FILENAME));
             var data = JsonUtility.FromJson<SaveFileDTO>(jsonContent);
             _pointController.SetPoints(data.points);
             var upgradeByName = new Dictionary<string, UpgradeInstance>(_upgradeContainer.upgrades.Count); 
@@ -47,9 +49,7 @@ namespace Player
                 if (!upgradeByName.TryGetValue(savedUpgrade.upgradeName, out var upgrade))
                     continue; 
                 bool levelOverCap = upgrade.Data.maxLevel < savedUpgrade.upgradeLevel; // checks if max level was changed
-                    upgrade.Level = levelOverCap ? 
-                    upgrade.Data.maxLevel : 
-                    savedUpgrade.upgradeLevel;
+                upgrade.Level = levelOverCap ? upgrade.Data.maxLevel : savedUpgrade.upgradeLevel;
             }
             _upgradeContainer.UpdateMultiplier();
             _pointController.GetPointUIController().UpdateValue();
