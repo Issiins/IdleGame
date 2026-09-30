@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-
+﻿
 namespace Player.States
 {
     public class StateMachine

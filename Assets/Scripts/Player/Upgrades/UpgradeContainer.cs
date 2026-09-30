@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Interaction;
 using Player;
-using UnityEngine;
 
 namespace Upgrades
 {

@@ -13,7 +13,7 @@ namespace Upgrades
             Data = data;
         }
         public void LevelUp() => Level++;
-        public int CurrentCost => Data.cost * (Level + 1);
+        public int CurrentCost => Data.cost + Level * Data.cost * Data.priceIncrease;
         /// <summary>
         /// Checks level requirements if upgrade can be unlocked
         /// </summary>

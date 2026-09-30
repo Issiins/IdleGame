@@ -24,7 +24,6 @@ namespace Interaction
             _builder.Append(Text);
             _builder.Append(pointController.GetPoints().ToString(Format));
             pointText.text = _builder.ToString();
-            if(debug) Debug.Log("Point text after update: \n" + pointText.text);
         }
     }
 }
