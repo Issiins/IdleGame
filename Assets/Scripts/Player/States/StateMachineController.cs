@@ -37,5 +37,6 @@ namespace Player.States
             else _stateMachine.ChangeState(_onGameState);
         }
         public void ConfirmExit() => SceneManager.LoadScene(mainMenu.name);
+        public void ConfirmDeny() => popMenu.SetActive(false);
     }
 }
