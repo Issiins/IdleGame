@@ -18,6 +18,7 @@ MonoBehaviour:
   <cost>k__BackingField: 5
   <maxLevel>k__BackingField: 10
   <multiplier>k__BackingField: 2
+  <priceIncrease>k__BackingField: 10
   <unlockRequirements>k__BackingField: []
   effect:
     rid: 1674781091602628684

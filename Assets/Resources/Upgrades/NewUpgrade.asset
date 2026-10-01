@@ -18,6 +18,7 @@ MonoBehaviour:
   <cost>k__BackingField: 250
   <maxLevel>k__BackingField: 1
   <multiplier>k__BackingField: 5
+  <priceIncrease>k__BackingField: 0
   <unlockRequirements>k__BackingField:
   - Data: {fileID: 11400000, guid: 28fa815f5716df3459fde61bb48de65b, type: 2}
     Level: 5

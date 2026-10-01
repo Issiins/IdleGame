@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections;
+using UnityEngine;
+
+namespace UI
+{
+    public class Heartbeat : MonoBehaviour
+    {
+        [SerializeField, Min(0)] private float pauseDuration;
+        [SerializeField, Min(0)] private float pulseDuration;
+        [SerializeField, Min(0)] private float sizeMultiplier;
+        private Vector3 _baseScale;
+        private Coroutine _heartBeatCoroutine;
+        private WaitForSeconds _wt;
+
+        private void Awake()
+        {
+            _baseScale = transform.localScale;
+            _wt = new WaitForSeconds(pauseDuration);
+            _heartBeatCoroutine = StartCoroutine(Animate());
+        }
+
+        private IEnumerator Animate()
+        {
+            while (true)
+            {
+                yield return ScaleTo(_baseScale*sizeMultiplier, pulseDuration);
+                yield return ScaleTo(_baseScale, pulseDuration);
+                yield return _wt;
+            }
+        }
+
+        private IEnumerator ScaleTo(Vector3 targetScale, float duration)
+        {
+            for (var time = 0f; time < duration; time += Time.deltaTime)
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, targetScale, time / duration);
+                yield return null;
+            }
+            transform.localScale = targetScale; // safety line to reach desired scale (Lerp can end before reaching the limit)
+        }
+
+        private void OnDisable()
+        {
+            StopCoroutine(_heartBeatCoroutine);
+            transform.localScale = _baseScale;
+        }
+    }
+}

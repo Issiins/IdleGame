@@ -2805,6 +2805,7 @@ GameObject:
   - component: {fileID: 1936055013}
   - component: {fileID: 1936055012}
   - component: {fileID: 1936055011}
+  - component: {fileID: 1936055014}
   m_Layer: 5
   m_Name: PointButton
   m_TagString: Untagged
@@ -2926,6 +2927,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936055009}
   m_CullTransparentMesh: 1
+--- !u!114 &1936055014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936055009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273821a2c4994997b8a04d4f6b862bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.Heartbeat
+  pauseDuration: 1.5
+  pulseDuration: 0.2
+  sizeMultiplier: 1.05
 --- !u!1 &1955841881
 GameObject:
   m_ObjectHideFlags: 0
