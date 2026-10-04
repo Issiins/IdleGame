@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8774188356734145209}
   - component: {fileID: 8208254077104128900}
   - component: {fileID: 6017817996397543750}
+  - component: {fileID: -6552977274420591062}
   m_Layer: 5
   m_Name: Word object
   m_TagString: Untagged
@@ -137,3 +138,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &-6552977274420591062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7658124594397615197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7771fb37854775844a895e805404ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.WordDroplet
+  timeExist: 3

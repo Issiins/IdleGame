@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace UI
+namespace UI.WordWaterfall
 {
     public class WordSpawner : MonoBehaviour
     {
