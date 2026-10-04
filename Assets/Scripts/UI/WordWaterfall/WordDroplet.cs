@@ -8,7 +8,7 @@ namespace UI.WordWaterfall
 {
     public class WordDroplet : MonoBehaviour
     {
-        [SerializeField] private float timeExist;
+        [SerializeField] private float duration;
         [Header("Drop values")] 
         //[SerializeField] private float strength;
         
@@ -20,19 +20,19 @@ namespace UI.WordWaterfall
 
         private void Start()
         {
-            Invoke(nameof(RemoveDroplet), timeExist);
+            Invoke(nameof(RemoveDroplet), duration);
             StartCoroutine(TextFade());
         }
         private void RemoveDroplet() => Destroy(gameObject);
 
         private IEnumerator TextFade()
         {
-            var t = 0f;
+            var timeElapsed = 0f;
             Color originalColor = _text.color; 
-            while (t < timeExist)
+            while (timeElapsed < duration)
             {
-                t += Time.deltaTime;
-                var colorAfterLerp = Color.Lerp(originalColor, Color.clear, t/timeExist);
+                timeElapsed += Time.deltaTime;
+                var colorAfterLerp = Color.Lerp(originalColor, Color.clear, timeElapsed/duration);
                 _text.color = colorAfterLerp;
                 yield return null;
             }
