@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace UI.WordWaterfall
@@ -13,8 +11,10 @@ namespace UI.WordWaterfall
         [SerializeField] private float strength;
         [SerializeField] private float gravity;
         [SerializeField] private float angle;
+        
         private RectTransform _rectTransform;
         private TMP_Text _text;
+        private readonly string[] _wordList = { "Pain", "Alone"};
         private void Awake()
         {
             _text = GetComponent<TMP_Text>();
@@ -33,6 +33,7 @@ namespace UI.WordWaterfall
             var timeElapsed = 0f;
             Color originalColor = _text.color;
             var startingPosition = _rectTransform.anchoredPosition;
+            _text.text = _wordList[Random.Range(0, _wordList.Length)]; // Selects random word from the list
             while (timeElapsed < duration)
             {
                 FadeText(originalColor, timeElapsed);
