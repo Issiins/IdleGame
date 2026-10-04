@@ -24,35 +24,33 @@ namespace UI.WordWaterfall
         private void Start()
         {
             Invoke(nameof(RemoveDroplet), duration);
-            StartCoroutine(TextFade());
-            StartCoroutine(MoveText());
+            StartCoroutine(AnimateText());
         }
         private void RemoveDroplet() => Destroy(gameObject);
 
-        private IEnumerator TextFade()
+        private IEnumerator AnimateText()
         {
             var timeElapsed = 0f;
             Color originalColor = _text.color; 
-            while (timeElapsed < duration)
-            {
-                timeElapsed += Time.deltaTime;
-                var colorAfterLerp = Color.Lerp(originalColor, Color.clear, timeElapsed/duration);
-                _text.color = colorAfterLerp;
-                yield return null;
-            }
-        }
-        private IEnumerator MoveText()
-        {
-            var timeElapsed = Time.deltaTime;
             var startingPosition = _rectTransform.anchoredPosition.y;
             while (timeElapsed < duration)
             {
-                var x = CalculateDistance(timeElapsed);
-                var y = CalculateHeight(startingPosition, timeElapsed);
-                _rectTransform.anchoredPosition = new Vector2(x, y);
+                FadeText(originalColor, timeElapsed);
+                MoveText(startingPosition, timeElapsed);
                 timeElapsed += Time.deltaTime;
                 yield return null;
             }
+        }
+        private void FadeText(Color originalColor, float timeElapsed)
+        {
+            var colorAfterLerp = Color.Lerp(originalColor, Color.clear, timeElapsed/duration);
+            _text.color = colorAfterLerp;
+        }
+        private void MoveText(float startingPosition, float timeElapsed)
+        {
+            var x = CalculateDistance(timeElapsed);
+            var y = CalculateHeight(startingPosition, timeElapsed);
+            _rectTransform.anchoredPosition = new Vector2(x, y);
         }
         private float CalculateDistance(float time) => strength * Mathf.Cos(angle * Mathf.Deg2Rad) * time;
         private float CalculateHeight(float startingPos, float time) => startingPos + strength * Mathf.Sin(angle * Mathf.Deg2Rad) * time - 0.5f * gravity * time * time;
