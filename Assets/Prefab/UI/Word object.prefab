@@ -150,4 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7771fb37854775844a895e805404ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.WordDroplet
-  timeExist: 3
+  duration: 2.5
+  strength: 50
+  gravity: 60
+  angle: 50
