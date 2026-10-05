@@ -9,6 +9,7 @@ namespace UI
         [SerializeField, Min(0)] private float pauseDuration;
         [SerializeField, Min(0)] private float pulseDuration;
         [SerializeField, Min(0)] private float sizeMultiplier;
+        [SerializeField] private AudioClip audioClip;
         private Vector3 _baseScale;
         private Coroutine _heartBeatCoroutine;
         private WaitForSeconds _wt;
@@ -39,11 +40,25 @@ namespace UI
             }
             transform.localScale = targetScale; // safety line to reach desired scale (Lerp can end before reaching the limit)
         }
-
         private void OnDisable()
         {
             StopCoroutine(_heartBeatCoroutine);
             transform.localScale = _baseScale;
         }
+
+        public void SetPauseDuration(float duration)
+        {
+            if(Mathf.Approximately(pauseDuration, duration)) return;
+            pauseDuration = duration;
+            ResetAnimation();
+        }
+
+        private void ResetAnimation()
+        {
+            OnDisable();
+            SetWaitTime(pauseDuration);
+            _heartBeatCoroutine = StartCoroutine(Animate());
+        }
+        private void SetWaitTime(float rate) => _wt = new WaitForSeconds(rate);
     }
 }

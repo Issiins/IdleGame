@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Player;
+using UI;
 using UI.WordWaterfall;
 using UnityEngine;
 using Upgrades;
@@ -12,6 +13,7 @@ namespace Interaction
         [SerializeField] private float points = 0f;
         [SerializeField] private PointUiController pointUIController;
         [SerializeField] private WordSpawner wordSpawner;
+        [SerializeField] private Heartbeat heart;
         private UpgradeContainer _upgradeContainer;
         private readonly PlayerStats _stats = new();
         private readonly WaitForSeconds _waitTime = new(1f);  // 1 second
@@ -58,24 +60,30 @@ namespace Interaction
                     wordSpawner.SetActive(true);
                     break;
                 default:
+                    heart.SetPauseDuration(1.5f);
                     return;
             }
             switch (points)
             {
                 case < 1000f:
+                    heart.SetPauseDuration(0.9f);
                     wordSpawner.SetSpawnRate(8f);
                     break;
                 case >= 1000f and < 5000f:
+                    heart.SetPauseDuration(0.7f);
                     wordSpawner.SetSpawnRate(4f);
                     break;
                 case >= 5000f and < 10000f:
+                    heart.SetPauseDuration(0.5f);
                     wordSpawner.SetSpawnRate(1f);
                     break;
                 case >= 10000f and < 20000f:
+                    heart.SetPauseDuration(0.3f);
                     wordSpawner.SetSpawnRate(0.75f);
                     break;
                 case >= 20000f and < 40000f:
-                    wordSpawner.SetSpawnRate(0.3f);
+                    heart.SetPauseDuration(0.15f);
+                    wordSpawner.SetSpawnRate(0.1f);
                     break;
             }
         }
