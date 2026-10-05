@@ -10,6 +10,7 @@ namespace UI
         [SerializeField, Min(0)] private float pulseDuration;
         [SerializeField, Min(0)] private float sizeMultiplier;
         [SerializeField] private AudioClip audioClip;
+        private AudioSource _audioClipSource;
         private Vector3 _baseScale;
         private Coroutine _heartBeatCoroutine;
         private WaitForSeconds _wt;
@@ -18,6 +19,8 @@ namespace UI
         {
             _baseScale = transform.localScale;
             _wt = new WaitForSeconds(pauseDuration);
+            _audioClipSource = GetComponent<AudioSource>();
+            _audioClipSource.clip = audioClip;
             _heartBeatCoroutine = StartCoroutine(Animate());
         }
 
@@ -25,6 +28,7 @@ namespace UI
         {
             while (true)
             {
+                _audioClipSource.Play();
                 yield return ScaleTo(_baseScale*sizeMultiplier, pulseDuration);
                 yield return ScaleTo(_baseScale, pulseDuration);
                 yield return _wt;
