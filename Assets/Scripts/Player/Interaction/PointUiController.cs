@@ -12,7 +12,7 @@ namespace Interaction
         [SerializeField] private bool debug = true;
 
         private readonly StringBuilder _builder = new();
-        private const string Text = "Current point count: ";
+        private const string Text = "Insanity points: ";
         private const string Format = "N0";
         public void UpdateValue()
         {

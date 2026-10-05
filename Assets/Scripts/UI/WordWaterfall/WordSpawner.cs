@@ -12,6 +12,7 @@ namespace UI.WordWaterfall
         [SerializeField] private RectTransform spawningBox;
         [SerializeField] private GameObject spawnableObject;
         [SerializeField] private float spawningRate = 5f;
+        private bool _spawnActive;
         private Vector3 _spawningPosition;
         private WaitForSeconds _waitTime;
         private Coroutine _spawningRoutine;
@@ -31,11 +32,12 @@ namespace UI.WordWaterfall
         {
             while (true)
             {
+                yield return _waitTime;
+                if(!_spawnActive) continue;
                 var x = Random.Range(_spawningPosition.x-_spawningRadius.x, _spawningPosition.x+_spawningRadius.x);
                 var y = Random.Range(_spawningPosition.y-_spawningRadius.y, _spawningPosition.y+_spawningRadius.y);
                 var spawningPos = new Vector3(x,y, spawningBox.localPosition.z+1);
                 Instantiate(spawnableObject, spawningPos, Quaternion.identity,  spawningBox);
-                yield return _waitTime;
             }
         }
 
@@ -43,5 +45,14 @@ namespace UI.WordWaterfall
         {
             StopCoroutine(_spawningRoutine);
         }
+        public void SetActive(bool currentValue) => _spawnActive = currentValue;
+
+        public void SetSpawnRate(float rate)
+        {
+            spawningRate = rate;
+            SetWaitTime();
+        }
+        private void SetWaitTime() => _waitTime = new WaitForSeconds(spawningRate);
+        public bool GetCurrentActivity() => _spawnActive;
     }
 }
