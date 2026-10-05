@@ -71,7 +71,7 @@ namespace Interaction
                 case >= 5000f and < 10000f:
                     wordSpawner.SetSpawnRate(3f);
                     break;
-                case >= 10000f and 20000f:
+                case >= 10000f and < 20000f:
                     wordSpawner.SetSpawnRate(1f);
                     break;
                 case >= 20000f and < 40000f:

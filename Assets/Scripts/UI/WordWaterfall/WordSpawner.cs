@@ -49,10 +49,17 @@ namespace UI.WordWaterfall
 
         public void SetSpawnRate(float rate)
         {
+            if(Mathf.Approximately(spawningRate, rate)) return;
             spawningRate = rate;
-            SetWaitTime();
+            RestartSpawn();
         }
-        private void SetWaitTime() => _waitTime = new WaitForSeconds(spawningRate);
+        private void RestartSpawn()
+        {
+            StopCoroutine(_spawningRoutine);
+            SetWaitTime(spawningRate);
+            _spawningRoutine = StartCoroutine(Spawn());
+        }
+        private void SetWaitTime(float rate) => _waitTime = new WaitForSeconds(rate);
         public bool GetCurrentActivity() => _spawnActive;
     }
 }
