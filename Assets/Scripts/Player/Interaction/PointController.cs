@@ -63,19 +63,19 @@ namespace Interaction
             switch (points)
             {
                 case < 1000f:
-                    wordSpawner.SetSpawnRate(12f);
-                    break;
-                case >= 1000f and < 5000f:
                     wordSpawner.SetSpawnRate(8f);
                     break;
-                case >= 5000f and < 10000f:
-                    wordSpawner.SetSpawnRate(3f);
+                case >= 1000f and < 5000f:
+                    wordSpawner.SetSpawnRate(4f);
                     break;
-                case >= 10000f and < 20000f:
+                case >= 5000f and < 10000f:
                     wordSpawner.SetSpawnRate(1f);
                     break;
+                case >= 10000f and < 20000f:
+                    wordSpawner.SetSpawnRate(0.75f);
+                    break;
                 case >= 20000f and < 40000f:
-                    wordSpawner.SetSpawnRate(0.1f);
+                    wordSpawner.SetSpawnRate(0.3f);
                     break;
             }
         }
