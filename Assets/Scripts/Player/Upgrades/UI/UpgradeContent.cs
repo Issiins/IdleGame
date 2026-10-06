@@ -10,6 +10,7 @@ namespace Player.Upgrade.UI
     {
         [SerializeField] private TMP_Text title;
         [SerializeField] private TMP_Text description;
+        [SerializeField] private TMP_Text boost;
         [SerializeField] private TMP_Text cost;
         [SerializeField] private Image icon;
         [SerializeField] private Button purchaseButton;
@@ -20,6 +21,7 @@ namespace Player.Upgrade.UI
         {
             title.text = upgrade.Data.name;
             description.text = upgrade.Data.description;
+            boost.text = upgrade.Data.boost;
             icon.sprite = upgrade.Data.icon;
             FormatText(upgrade);
             purchaseButton = GetComponentInChildren<Button>();

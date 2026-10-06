@@ -14,7 +14,7 @@ namespace UI.WordWaterfall
         
         private RectTransform _rectTransform;
         private TMP_Text _text;
-        private readonly string[] _wordList = { "Pain", "Alone"};
+        private readonly string[] _wordList = { "Pain", "Alone", "Lonely", "Nobody"};
         private void Awake()
         {
             _text = GetComponent<TMP_Text>();

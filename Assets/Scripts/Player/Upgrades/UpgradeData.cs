@@ -13,6 +13,7 @@ namespace Upgrades
             [field: SerializeField] public Sprite icon { get; private set; }
             [field: SerializeField] public new string name { get; private set; }
             [field: SerializeField] public new string description  { get; private set; }
+            [field: SerializeField] public string boost { get; private set; }
             [field: SerializeField, Min(1)] public int cost { get; private set; }
             [field: SerializeField] public byte maxLevel { get; private set; }
             [field: SerializeField, Min(0)] public float multiplier { get; private set; }

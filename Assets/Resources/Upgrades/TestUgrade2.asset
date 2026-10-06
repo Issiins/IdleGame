@@ -15,6 +15,7 @@ MonoBehaviour:
   <icon>k__BackingField: {fileID: 0}
   <name>k__BackingField: SecondUpgrade
   <description>k__BackingField: Second upgrade, testing unlock system
+  <boost>k__BackingField: 'Increases production by 1 point '
   <cost>k__BackingField: 25
   <maxLevel>k__BackingField: 5
   <multiplier>k__BackingField: 1

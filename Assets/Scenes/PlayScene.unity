@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 357372950}
   - component: {fileID: 357372949}
   - component: {fileID: 357372953}
+  - component: {fileID: 357372954}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -700,6 +701,18 @@ MonoBehaviour:
   pointController: {fileID: 537148995}
   pointText: {fileID: 1410433281}
   debug: 1
+--- !u!225 &357372954
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357372948}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &388579032
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +953,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.90943396, g: 0.15614808, b: 0.55227256, a: 0}
+  m_BackGroundColor: {r: 0.6792453, g: 0.16340333, b: 0.43475768, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1142,7 +1155,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854951841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2181,7 +2194,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410433279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

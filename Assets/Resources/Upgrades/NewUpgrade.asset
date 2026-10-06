@@ -15,6 +15,7 @@ MonoBehaviour:
   <icon>k__BackingField: {fileID: 0}
   <name>k__BackingField: Newest upgrade
   <description>k__BackingField: Again new upgrade
+  <boost>k__BackingField: Increases production by 5 points
   <cost>k__BackingField: 250
   <maxLevel>k__BackingField: 1
   <multiplier>k__BackingField: 5

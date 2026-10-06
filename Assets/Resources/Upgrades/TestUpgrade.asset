@@ -15,6 +15,7 @@ MonoBehaviour:
   <icon>k__BackingField: {fileID: 0}
   <name>k__BackingField: FirstUpgrade
   <description>k__BackingField: Testing this upgrade
+  <boost>k__BackingField: Increasing clicking power by 2 points
   <cost>k__BackingField: 5
   <maxLevel>k__BackingField: 10
   <multiplier>k__BackingField: 2
