@@ -64,5 +64,6 @@ namespace UI
             _heartBeatCoroutine = StartCoroutine(Animate());
         }
         private void SetWaitTime(float rate) => _wt = new WaitForSeconds(rate);
+        public void SetPulseDuration (float duration) => pulseDuration = duration;
     }
 }

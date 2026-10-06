@@ -60,30 +60,35 @@ namespace Interaction
                     wordSpawner.SetActive(true);
                     break;
                 default:
-                    heart.SetPauseDuration(1.5f);
+                    heart.SetPauseDuration(duration: 1.5f);
                     return;
             }
             switch (points)
             {
                 case < 1000f:
-                    heart.SetPauseDuration(0.9f);
-                    wordSpawner.SetSpawnRate(8f);
+                    heart.SetPauseDuration(duration: 0.9f);
+                    heart.SetPulseDuration(duration: 0.2f);
+                    wordSpawner.SetSpawnRate(rate: 8f);
                     break;
                 case >= 1000f and < 5000f:
-                    heart.SetPauseDuration(0.7f);
-                    wordSpawner.SetSpawnRate(4f);
+                    heart.SetPauseDuration(duration: 0.7f);
+                    heart.SetPulseDuration(duration: 0.2f);
+                    wordSpawner.SetSpawnRate(rate: 4f);
                     break;
                 case >= 5000f and < 10000f:
-                    heart.SetPauseDuration(0.5f);
-                    wordSpawner.SetSpawnRate(1f);
+                    heart.SetPauseDuration(duration: 0.5f);
+                    heart.SetPulseDuration(duration: 0.2f);
+                    wordSpawner.SetSpawnRate(rate: 1f);
                     break;
                 case >= 10000f and < 20000f:
-                    heart.SetPauseDuration(0.3f);
-                    wordSpawner.SetSpawnRate(0.75f);
+                    heart.SetPauseDuration(duration: 0.3f);
+                    heart.SetPulseDuration(duration: 0.2f);
+                    wordSpawner.SetSpawnRate(rate: 0.75f);
                     break;
                 case >= 20000f and < 40000f:
-                    heart.SetPauseDuration(0.15f);
-                    wordSpawner.SetSpawnRate(0.1f);
+                    heart.SetPauseDuration(duration: 0.15f);
+                    heart.SetPulseDuration(duration: 0.1f);
+                    wordSpawner.SetSpawnRate(rate: 0.1f);
                     break;
             }
         }
