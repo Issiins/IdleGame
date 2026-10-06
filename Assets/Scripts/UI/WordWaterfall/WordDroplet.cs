@@ -49,10 +49,10 @@ namespace UI.WordWaterfall
         }
         private void MoveText(Vector2 startingPosition, float timeElapsed)
         {
-            var x = CalculateDistance(timeElapsed);
-            var y = CalculateHeight(startingPosition.y, timeElapsed);
+            var xDelta = CalculateDistance(timeElapsed);
+            var yDelta = CalculateHeight(startingPosition.y, timeElapsed);
             var direction = Mathf.Sign(startingPosition.x);
-            _rectTransform.anchoredPosition = new Vector2(direction*x, y);
+            _rectTransform.anchoredPosition = new Vector2(startingPosition.x+direction*xDelta, yDelta);
         }
         
         // Both functions use position over time formulas with launch angle and initial speed
