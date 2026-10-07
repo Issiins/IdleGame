@@ -10,26 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85ed84f9d30a9a94ab80763158e1adc3, type: 3}
-  m_Name: NewUpgrade
+  m_Name: Stuck
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
   <icon>k__BackingField: {fileID: 0}
-  <name>k__BackingField: Joyless
-  <description>k__BackingField: Nothing. Only thoughs
-  <boost>k__BackingField: Increases production by 5 points
-  <cost>k__BackingField: 250
-  <maxLevel>k__BackingField: 1
-  <multiplier>k__BackingField: 5
-  <priceIncrease>k__BackingField: 0
+  <name>k__BackingField: Stuck
+  <description>k__BackingField: Why can't I go do productive activity
+  <boost>k__BackingField: 'Increases production by 1 point '
+  <cost>k__BackingField: 25
+  <maxLevel>k__BackingField: 5
+  <multiplier>k__BackingField: 1
+  <priceIncrease>k__BackingField: 2
   <unlockRequirements>k__BackingField:
-  - Data: {fileID: 11400000, guid: 28fa815f5716df3459fde61bb48de65b, type: 2}
-    Level: 5
   - Data: {fileID: 11400000, guid: 3c653cbdaa7d849418c1e67f2c9c384d, type: 2}
     Level: 5
   effect:
-    rid: 1674781091602628686
+    rid: 1674781091602628685
   references:
     version: 2
     RefIds:
-    - rid: 1674781091602628686
+    - rid: 1674781091602628685
       type: {class: ProductionEffect, ns: Upgrades, asm: Assembly-CSharp}
       data: 
