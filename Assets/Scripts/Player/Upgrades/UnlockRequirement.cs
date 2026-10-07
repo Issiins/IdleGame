@@ -1,4 +1,6 @@
 ﻿using System;
+using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Upgrades
 {
@@ -11,7 +13,7 @@ namespace Upgrades
         public UnlockRequirement(UpgradeData data, int level)
         {
             Data = data;
-            Level = level;
+            Level = data != null ? Mathf.Clamp(level, 0, data.maxLevel) : level;
         }
     }
 }

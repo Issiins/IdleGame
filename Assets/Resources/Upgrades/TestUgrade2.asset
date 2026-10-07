@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: TestUgrade2
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
   <icon>k__BackingField: {fileID: 0}
-  <name>k__BackingField: SecondUpgrade
-  <description>k__BackingField: Second upgrade, testing unlock system
+  <name>k__BackingField: Stuck
+  <description>k__BackingField: Why can't I go do productive activity
   <boost>k__BackingField: 'Increases production by 1 point '
   <cost>k__BackingField: 25
   <maxLevel>k__BackingField: 5
   <multiplier>k__BackingField: 1
-  <priceIncrease>k__BackingField: 25
+  <priceIncrease>k__BackingField: 2
   <unlockRequirements>k__BackingField:
   - Data: {fileID: 11400000, guid: 3c653cbdaa7d849418c1e67f2c9c384d, type: 2}
     Level: 5

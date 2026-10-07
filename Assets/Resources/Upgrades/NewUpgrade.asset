@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: NewUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
   <icon>k__BackingField: {fileID: 0}
-  <name>k__BackingField: Newest upgrade
-  <description>k__BackingField: Again new upgrade
+  <name>k__BackingField: Joyless
+  <description>k__BackingField: Nothing. Only thoughs
   <boost>k__BackingField: Increases production by 5 points
   <cost>k__BackingField: 250
   <maxLevel>k__BackingField: 1

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ed84f9d30a9a94ab80763158e1adc3, type: 3}
+  m_Name: Meaningless
+  m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
+  <icon>k__BackingField: {fileID: 0}
+  <name>k__BackingField: Meaningless
+  <description>k__BackingField: What is point of the life? Die?
+  <boost>k__BackingField: Increases click power by 15 points
+  <cost>k__BackingField: 10000
+  <maxLevel>k__BackingField: 1
+  <multiplier>k__BackingField: 15
+  <priceIncrease>k__BackingField: 1
+  <unlockRequirements>k__BackingField:
+  - Data: {fileID: 11400000, guid: f3d437cb4c123b542a6e23a81847cacb, type: 2}
+    Level: 3
+  effect:
+    rid: 6886554832017031246
+  references:
+    version: 2
+    RefIds:
+    - rid: 6886554832017031246
+      type: {class: ClickEffect, ns: Upgrades, asm: Assembly-CSharp}
+      data: 

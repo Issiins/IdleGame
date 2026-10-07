@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TestUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade.UpgradeData
   <icon>k__BackingField: {fileID: 0}
-  <name>k__BackingField: FirstUpgrade
-  <description>k__BackingField: Testing this upgrade
+  <name>k__BackingField: Darkness
+  <description>k__BackingField: Hello, old friend.
   <boost>k__BackingField: Increasing clicking power by 2 points
   <cost>k__BackingField: 5
   <maxLevel>k__BackingField: 10

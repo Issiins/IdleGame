@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ed84f9d30a9a94ab80763158e1adc3, type: 3}
+  m_Name: Depression
+  m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
+  <icon>k__BackingField: {fileID: 0}
+  <name>k__BackingField: Depression
+  <description>k__BackingField: Well, hello new friend
+  <boost>k__BackingField: Increases production by 12 points
+  <cost>k__BackingField: 5000
+  <maxLevel>k__BackingField: 3
+  <multiplier>k__BackingField: 12
+  <priceIncrease>k__BackingField: 2
+  <unlockRequirements>k__BackingField:
+  - Data: {fileID: 11400000, guid: 20628519eb113894b9e612f4699783f7, type: 2}
+    Level: 1
+  - Data: {fileID: 11400000, guid: 3c653cbdaa7d849418c1e67f2c9c384d, type: 2}
+    Level: 10
+  effect:
+    rid: 6886554832017031245
+  references:
+    version: 2
+    RefIds:
+    - rid: 6886554832017031245
+      type: {class: ProductionEffect, ns: Upgrades, asm: Assembly-CSharp}
+      data: 

@@ -11,6 +11,7 @@ namespace Interaction
     public class PointController : MonoBehaviour
     {
         [SerializeField] private float points = 0f;
+        [Header("Controller references")]
         [SerializeField] private PointUiController pointUIController;
         [SerializeField] private WordSpawner wordSpawner;
         [SerializeField] private Heartbeat heart;
