@@ -16,7 +16,7 @@ MonoBehaviour:
   <name>k__BackingField: Hollow
   <description>k__BackingField: 'Wide smile, with no feelings '
   <boost>k__BackingField: Increases click power by 15 points
-  <cost>k__BackingField: 105
+  <cost>k__BackingField: 300
   <maxLevel>k__BackingField: 2
   <multiplier>k__BackingField: 15
   <priceIncrease>k__BackingField: 20

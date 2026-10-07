@@ -37,5 +37,7 @@ namespace Upgrades
             }
             return true;
         }
+        public static bool operator >(UpgradeInstance a, UpgradeInstance b) => a.Data.cost > b.Data.cost;
+        public static bool operator <(UpgradeInstance a, UpgradeInstance b) =>  a.Data.cost < b.Data.cost;
     }
 }

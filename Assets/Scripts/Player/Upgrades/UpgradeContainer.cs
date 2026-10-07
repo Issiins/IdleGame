@@ -22,6 +22,7 @@ namespace Upgrades
             {
                 _upgrades.Add(upgrade);
             }
+            ReverseSort();
             _pointUiController = pointUiController;
         }
         public void UpdateMultiplier()
@@ -41,6 +42,22 @@ namespace Upgrades
             upgrade.LevelUp();
             UpdateMultiplier();
             OnUpgradePurchased?.Invoke();
+        }
+        private void ReverseSort()
+        {
+            var i = 1;
+            while (i < _upgrades.Count)
+            {
+                var temp = _upgrades[i];
+                var j = i;
+                while (j > 0 && _upgrades[j - 1] < temp)
+                {
+                    _upgrades[j] = _upgrades[j - 1];
+                    j--;
+                }
+                _upgrades[j] = temp;
+                i++;
+            }
         }
     }
 }

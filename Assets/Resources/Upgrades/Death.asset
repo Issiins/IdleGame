@@ -13,18 +13,33 @@ MonoBehaviour:
   m_Name: Death
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
   <icon>k__BackingField: {fileID: 0}
-  <name>k__BackingField: 
-  <description>k__BackingField: 
-  <boost>k__BackingField: 
-  <cost>k__BackingField: 0
-  <maxLevel>k__BackingField: 0
-  <multiplier>k__BackingField: 0
+  <name>k__BackingField: Death
+  <description>k__BackingField: Is it end, or just an escape? It is the latter
+  <boost>k__BackingField: ??? END ???
+  <cost>k__BackingField: 100000
+  <maxLevel>k__BackingField: 1
+  <multiplier>k__BackingField: 999
   <priceIncrease>k__BackingField: 0
-  <unlockRequirements>k__BackingField: []
+  <unlockRequirements>k__BackingField:
+  - Data: {fileID: 11400000, guid: 94df41769ec56ce4c964950d336fc0f4, type: 2}
+    Level: 5
+  - Data: {fileID: 11400000, guid: f3d437cb4c123b542a6e23a81847cacb, type: 2}
+    Level: 3
+  - Data: {fileID: 11400000, guid: 20628519eb113894b9e612f4699783f7, type: 2}
+    Level: 2
+  - Data: {fileID: 11400000, guid: 9b71c9a928f4b0042b36e9aeef3f38b1, type: 2}
+    Level: 1
+  - Data: {fileID: 11400000, guid: 8161b5b4f3b775c4aaaf6bd1c2118f74, type: 2}
+    Level: 1
+  - Data: {fileID: 11400000, guid: 28fa815f5716df3459fde61bb48de65b, type: 2}
+    Level: 5
+  - Data: {fileID: 11400000, guid: 3c653cbdaa7d849418c1e67f2c9c384d, type: 2}
+    Level: 10
   effect:
-    rid: -2
+    rid: 6886554854819889229
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6886554854819889229
+      type: {class: ClickEffect, ns: Upgrades, asm: Assembly-CSharp}
+      data: 
