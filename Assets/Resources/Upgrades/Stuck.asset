@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Stuck
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
   <icon>k__BackingField: {fileID: 0}
-  <name>k__BackingField: Stuck
-  <description>k__BackingField: Why can't I go do productive activity
+  <name>k__BackingField: Stuck in life
+  <description>k__BackingField: Why can't I be active?
   <boost>k__BackingField: 'Increases production by 1 point '
   <cost>k__BackingField: 25
   <maxLevel>k__BackingField: 5

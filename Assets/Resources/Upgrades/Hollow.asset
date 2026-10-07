@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
   <icon>k__BackingField: {fileID: 0}
   <name>k__BackingField: Hollow
-  <description>k__BackingField: 'Wide smile, with no feelings '
+  <description>k__BackingField: 'Wide smile, with no feelings. '
   <boost>k__BackingField: Increases click power by 15 points
   <cost>k__BackingField: 300
   <maxLevel>k__BackingField: 2

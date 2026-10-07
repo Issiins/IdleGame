@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ed84f9d30a9a94ab80763158e1adc3, type: 3}
   m_Name: Darkness
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade.UpgradeData
-  <icon>k__BackingField: {fileID: 0}
+  <icon>k__BackingField: {fileID: 21300000, guid: ad385abb52ed8f441ab6b90b8553e782, type: 3}
   <name>k__BackingField: Darkness
   <description>k__BackingField: Hello, old friend.
   <boost>k__BackingField: Increasing clicking power by 2 points

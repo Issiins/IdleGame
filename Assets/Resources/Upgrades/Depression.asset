@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ed84f9d30a9a94ab80763158e1adc3, type: 3}
   m_Name: Depression
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
-  <icon>k__BackingField: {fileID: 0}
+  <icon>k__BackingField: {fileID: 21300000, guid: ad385abb52ed8f441ab6b90b8553e782, type: 3}
   <name>k__BackingField: Depression
-  <description>k__BackingField: Well, hello new friend
+  <description>k__BackingField: Well, hello new friend.
   <boost>k__BackingField: Increases production by 12 points
   <cost>k__BackingField: 5000
   <maxLevel>k__BackingField: 3

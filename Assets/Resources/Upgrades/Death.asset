@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
   <icon>k__BackingField: {fileID: 0}
   <name>k__BackingField: Death
-  <description>k__BackingField: Is it end, or just an escape? It is the latter
+  <description>k__BackingField: Is it the end, or just an escape? It is the latter.
   <boost>k__BackingField: ??? END ???
   <cost>k__BackingField: 100000
   <maxLevel>k__BackingField: 1

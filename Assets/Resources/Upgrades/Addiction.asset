@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
   <icon>k__BackingField: {fileID: 0}
   <name>k__BackingField: Addiction
-  <description>k__BackingField: Cycle always repeats
+  <description>k__BackingField: Cycle always repeats.
   <boost>k__BackingField: Increases production by 32 points
   <cost>k__BackingField: 15000
   <maxLevel>k__BackingField: 5
@@ -22,6 +22,8 @@ MonoBehaviour:
   <priceIncrease>k__BackingField: 1
   <unlockRequirements>k__BackingField:
   - Data: {fileID: 11400000, guid: f3d437cb4c123b542a6e23a81847cacb, type: 2}
+    Level: 3
+  - Data: {fileID: 11400000, guid: 9b71c9a928f4b0042b36e9aeef3f38b1, type: 2}
     Level: 1
   effect:
     rid: 6886554854819889152

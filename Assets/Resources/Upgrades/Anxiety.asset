@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85ed84f9d30a9a94ab80763158e1adc3, type: 3}
-  m_Name: Joyless
+  m_Name: Anxiety
   m_EditorClassIdentifier: Assembly-CSharp::Upgrades.UpgradeData
   <icon>k__BackingField: {fileID: 0}
-  <name>k__BackingField: Joyless
-  <description>k__BackingField: Nothing. Only thoughs
+  <name>k__BackingField: Anxiety
+  <description>k__BackingField: Nothing. Only thoughs.
   <boost>k__BackingField: Increases production by 5 points
   <cost>k__BackingField: 250
   <maxLevel>k__BackingField: 1
