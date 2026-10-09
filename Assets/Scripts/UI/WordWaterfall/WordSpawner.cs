@@ -60,6 +60,5 @@ namespace UI.WordWaterfall
             _spawningRoutine = StartCoroutine(Spawn());
         }
         private void SetWaitTime(float rate) => _waitTime = new WaitForSeconds(rate);
-        public bool GetCurrentActivity() => _spawnActive;
     }
 }

@@ -46,7 +46,8 @@ namespace UI
         }
         private void OnDisable()
         {
-            StopCoroutine(_heartBeatCoroutine);
+            if(_heartBeatCoroutine != null)
+                StopCoroutine(_heartBeatCoroutine);
             transform.localScale = _baseScale;
         }
 

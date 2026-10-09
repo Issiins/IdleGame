@@ -33,14 +33,21 @@ namespace Interaction
         [SerializeField] private InsanityValue defaultInsanityValue;
         [SerializeField] private List<InsanityValue> insanityValuesList;
         private UpgradeContainer _upgradeContainer;
+        private Coroutine _coroutine;
         private readonly PlayerStats _stats = new();
         private readonly WaitForSeconds _waitTime = new(1f);  // 1 second
-        private bool _isRunning = true;
+        private bool _isRunning;
+
         private void Awake()
         {
             UpgradeFactory upgradeFactory = new();
             _upgradeContainer = new UpgradeContainer(_stats, upgradeFactory.GetUpgrades(), pointUIController);
-            StartCoroutine(Accumalate());
+        }
+
+        private void Start()
+        {
+            _isRunning = true;
+            _coroutine = StartCoroutine(Accumalate());
         }
         public void OnClick()
         {
@@ -69,7 +76,7 @@ namespace Interaction
 
         private void InsanityCheck()
         {
-            if (defaultInsanityValue.min > points && points <= defaultInsanityValue.max)
+            if (defaultInsanityValue.min >= points && points <= defaultInsanityValue.max)
             {
                 wordSpawner.SetActive(false);
                 heart.SetPauseDuration(defaultInsanityValue.pauseDuration);
@@ -79,12 +86,10 @@ namespace Interaction
             wordSpawner.SetActive(true);
             foreach (var currentCheck in insanityValuesList)
             {
-                if (points >= currentCheck.min && points < currentCheck.max)
-                {
-                    heart.SetPauseDuration(currentCheck.pauseDuration);
-                    heart.SetPulseDuration(currentCheck.pulseDuration);
-                    wordSpawner.SetSpawnRate(currentCheck.spawnRate);
-                }
+                if (!(points >= currentCheck.min) || !(points < currentCheck.max)) continue;
+                heart.SetPauseDuration(currentCheck.pauseDuration);
+                heart.SetPulseDuration(currentCheck.pulseDuration);
+                wordSpawner.SetSpawnRate(currentCheck.spawnRate);
             }
         }
         public float GetPoints() => points;

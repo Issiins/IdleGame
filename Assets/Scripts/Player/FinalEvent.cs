@@ -41,6 +41,7 @@ namespace Player
         private void OnDisable()
         {
             pointController.GetUpgradeContainer().FinalEvent -= StartFinalMotion;
+            if(_coroutine == null) return;
             StopCoroutine(_coroutine);
         }
     }
