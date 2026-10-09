@@ -1,24 +1,40 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Player;
 using UI;
 using UI.WordWaterfall;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using Upgrades;
 
 namespace Interaction
 {
     public class PointController : MonoBehaviour
     {
+        [Serializable]
+        private struct InsanityValue
+        {
+            [Header("Range where this applies")] 
+            public float min;
+            public float max;
+            [Header("Heartbeat values")]
+            public float pauseDuration;
+            public float pulseDuration;
+            public float spawnRate;
+        }
         [SerializeField] private float points = 0f;
         [Header("Controller references")]
         [SerializeField] private PointUiController pointUIController;
         [SerializeField] private WordSpawner wordSpawner;
         [SerializeField] private Heartbeat heart;
+        [Header("Word spawner dynamical values")]
+        [SerializeField] private InsanityValue defaultInsanityValue;
+        [SerializeField] private List<InsanityValue> insanityValuesList;
         private UpgradeContainer _upgradeContainer;
         private readonly PlayerStats _stats = new();
         private readonly WaitForSeconds _waitTime = new(1f);  // 1 second
-        private const float InsanityLimit = 500f; 
         private void Awake()
         {
             UpgradeFactory upgradeFactory = new();
@@ -51,46 +67,22 @@ namespace Interaction
 
         private void InsanityCheck()
         {
-            var isOverLimit = points > InsanityLimit;
-            switch (isOverLimit)
+            if (defaultInsanityValue.min > points && points <= defaultInsanityValue.max)
             {
-                case false when wordSpawner.GetCurrentActivity():
-                    wordSpawner.SetActive(false);
-                    return;
-                case true:
-                    wordSpawner.SetActive(true);
-                    break;
-                default:
-                    heart.SetPauseDuration(duration: 1.5f);
-                    return;
+                wordSpawner.SetActive(false);
+                heart.SetPauseDuration(defaultInsanityValue.pauseDuration);
+                heart.SetPulseDuration(defaultInsanityValue.pulseDuration);
+                return;
             }
-            switch (points)
+            wordSpawner.SetActive(true);
+            foreach (var currentCheck in insanityValuesList)
             {
-                case < 1000f:
-                    heart.SetPauseDuration(duration: 0.9f);
-                    heart.SetPulseDuration(duration: 0.2f);
-                    wordSpawner.SetSpawnRate(rate: 8f);
-                    break;
-                case >= 1000f and < 5000f:
-                    heart.SetPauseDuration(duration: 0.7f);
-                    heart.SetPulseDuration(duration: 0.2f);
-                    wordSpawner.SetSpawnRate(rate: 4f);
-                    break;
-                case >= 5000f and < 10000f:
-                    heart.SetPauseDuration(duration: 0.5f);
-                    heart.SetPulseDuration(duration: 0.2f);
-                    wordSpawner.SetSpawnRate(rate: 1f);
-                    break;
-                case >= 10000f and < 20000f:
-                    heart.SetPauseDuration(duration: 0.3f);
-                    heart.SetPulseDuration(duration: 0.2f);
-                    wordSpawner.SetSpawnRate(rate: 0.75f);
-                    break;
-                case >= 20000f and < 40000f:
-                    heart.SetPauseDuration(duration: 0.15f);
-                    heart.SetPulseDuration(duration: 0.1f);
-                    wordSpawner.SetSpawnRate(rate: 0.1f);
-                    break;
+                if (points >= currentCheck.min && points < currentCheck.max)
+                {
+                    heart.SetPauseDuration(currentCheck.pauseDuration);
+                    heart.SetPulseDuration(currentCheck.pulseDuration);
+                    wordSpawner.SetSpawnRate(currentCheck.spawnRate);
+                }
             }
         }
         public float GetPoints() => points;

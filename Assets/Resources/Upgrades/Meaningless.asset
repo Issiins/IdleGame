@@ -25,6 +25,9 @@ MonoBehaviour:
     Level: 3
   effect:
     rid: 6886554832017031246
+  <customEvent>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
   references:
     version: 2
     RefIds:
