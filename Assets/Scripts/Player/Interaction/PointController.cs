@@ -35,6 +35,7 @@ namespace Interaction
         private UpgradeContainer _upgradeContainer;
         private readonly PlayerStats _stats = new();
         private readonly WaitForSeconds _waitTime = new(1f);  // 1 second
+        private bool _isRunning = true;
         private void Awake()
         {
             UpgradeFactory upgradeFactory = new();
@@ -43,12 +44,13 @@ namespace Interaction
         }
         public void OnClick()
         {
+            if(!_isRunning) return;
             points += _stats.ClickMultiplier;
             pointUIController.UpdateValue();
         }
         private IEnumerator Accumalate()
         {
-            while (true)
+            while (_isRunning)
             {
                 InsanityCheck();
                 points += _stats.ProductionPerSecond;
@@ -90,5 +92,6 @@ namespace Interaction
         public UpgradeContainer GetUpgradeContainer() => _upgradeContainer;
         public PointUiController GetPointUIController() => pointUIController;
         public void SetPoints(float amount) => points = amount;
+        public void ChangeRunningStatus(bool isRunning) => _isRunning = isRunning;
     }
 }

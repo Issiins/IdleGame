@@ -901,6 +901,28 @@ MonoBehaviour:
   pointUIController: {fileID: 357372953}
   wordSpawner: {fileID: 1652610586}
   heart: {fileID: 1936055014}
+  defaultInsanityValue:
+    min: 0
+    max: 1000
+    pauseDuration: 0.8
+    pulseDuration: 0.2
+    spawnRate: -1
+  insanityValuesList:
+  - min: 1000
+    max: 5000
+    pauseDuration: 0.75
+    pulseDuration: 0.2
+    spawnRate: 3
+  - min: 5000
+    max: 10000
+    pauseDuration: 0.5
+    pulseDuration: 0.18
+    spawnRate: 1.2
+  - min: 10000
+    max: 12000
+    pauseDuration: 0.2
+    pulseDuration: 0.15
+    spawnRate: 0.5
 --- !u!4 &537148996
 Transform:
   m_ObjectHideFlags: 0

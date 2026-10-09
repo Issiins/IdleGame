@@ -15,6 +15,8 @@ namespace Upgrades
         private readonly PlayerStats _stats;
         public List<UpgradeInstance> upgrades => _upgrades;
         public event Action OnUpgradePurchased;
+        public event Action FinalEvent;
+        private const string FinalUpgradeName = "Death"; 
         public UpgradeContainer(PlayerStats stats, List<UpgradeInstance> upgrades,  PointUiController pointUiController)
         {
             _stats = stats;
@@ -42,6 +44,8 @@ namespace Upgrades
             upgrade.LevelUp();
             UpdateMultiplier();
             OnUpgradePurchased?.Invoke();
+            if(!upgrade.Data.name.Equals(FinalUpgradeName)) return;
+            FinalEvent?.Invoke();
         }
         private void ReverseSort()
         {

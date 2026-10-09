@@ -14,6 +14,13 @@ namespace Interaction
         private readonly StringBuilder _builder = new();
         private const string Text = "Insanity points: ";
         private const string Format = "N0";
+        public void UpdateValue(float points)
+        {
+            _builder.Clear();
+            _builder.Append(Text);
+            _builder.Append(points.ToString(Format));
+            pointText.text = _builder.ToString();
+        }
         public void UpdateValue()
         {
             _builder.Clear();
