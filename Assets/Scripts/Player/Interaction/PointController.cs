@@ -92,6 +92,12 @@ namespace Interaction
                 wordSpawner.SetSpawnRate(currentCheck.spawnRate);
             }
         }
+
+        private void OnDisable()
+        {
+            if(_coroutine == null) return;
+            StopCoroutine(_coroutine);
+        }
         public float GetPoints() => points;
         public IReadOnlyList<UpgradeInstance> GetUpgrades() => _upgradeContainer.upgrades;
         public UpgradeContainer GetUpgradeContainer() => _upgradeContainer;

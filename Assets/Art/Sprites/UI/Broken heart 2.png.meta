@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: eb5591ef3bc9daa4181aa6e6fdc1e9fc
+guid: 1c06521e9221583419e4bacf56f2ee0d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2168968449695088268
-    second: Broken heart 1_0
+      213: -6610244145968223313
+    second: Broken heart 2_0
+  - first:
+      213: 5330564265356074612
+    second: Broken heart 2_1
+  - first:
+      213: -147258104820998337
+    second: Broken heart 2_2
+  - first:
+      213: -4459161595745797571
+    second: Broken heart 2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -74,7 +83,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 1
     textureFormat: 4
     textureCompression: 1
@@ -115,7 +124,73 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Broken heart 1_0
+      name: Broken heart 2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 138
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab65f8c8f1b344a0800000000000000
+      internalID: -6610244145968223313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Broken heart 2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e90f0f4f7f9f940800000000000000
+      internalID: 5330564265356074612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Broken heart 2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3fd8dba885d4fdf0800000000000000
+      internalID: -147258104820998337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Broken heart 2_3
       rect:
         serializedVersion: 2
         x: 0
@@ -123,15 +198,15 @@ TextureImporter:
         width: 45
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8efa153059b91e10800000000000000
-      internalID: 2168968449695088268
+      spriteID: d3af1818720ed12c0800000000000000
+      internalID: -4459161595745797571
       vertices: []
       indices: 
       edges: []
@@ -140,7 +215,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 1ad08d5c601b9df4592b39d3844245dd
     internalID: 0
     vertices: []
     indices: 
@@ -150,7 +225,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Broken heart 1_0: 2168968449695088268
+      Broken heart 2_0: -6610244145968223313
+      Broken heart 2_1: 5330564265356074612
+      Broken heart 2_2: -147258104820998337
+      Broken heart 2_3: -4459161595745797571
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
