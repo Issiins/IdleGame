@@ -24,15 +24,19 @@ namespace Player
         
         [Header("Other settings")]
         [SerializeField] private Sprite[] sprites;
-
+        [SerializeField] private AudioClip breakingGlassSFX;
+        private static readonly int[] _clickCountStage = {10,20,30 };
         private int _clickCount = 0;
-        private SpriteLevel _currentLevel;
+        private SpriteLevel? _currentLevel;
         private WaitForSeconds _wt;
         private Coroutine _coroutine;
+        private AudioSource _audioSource;
         private void Awake()
         {
             pointController.GetUpgradeContainer().FinalEvent += StartFinalMotion;
             _wt = new WaitForSeconds(pointUpdateDuration);
+            _audioSource = GetComponent<AudioSource>();
+            _audioSource.clip = breakingGlassSFX;
         }
 
         private void StartFinalMotion()
@@ -61,13 +65,22 @@ namespace Player
         private void ClickEvent()
         {
             _clickCount++;
-            
-            
+
+            var level = _clickCount switch
+            {
+                _ when _clickCount >= _clickCountStage[2] => SpriteLevel.Third,
+                _ when _clickCount >= _clickCountStage[1] => SpriteLevel.Second,
+                _ when _clickCount >= _clickCountStage[0] => SpriteLevel.First,
+                _ => _currentLevel
+            };
+            UpdateButtonSprite(level);
+            Debug.Log($"clicked {_clickCount})");
         }
 
-        private void UpdateButtonSprite(SpriteLevel spriteLevel)
+        private void UpdateButtonSprite(SpriteLevel? spriteLevel)
         {
             if(_currentLevel == spriteLevel) return;
+            _currentLevel = spriteLevel;
             clickButton.image.sprite = _currentLevel switch
             {
                 SpriteLevel.First => sprites[(int)SpriteLevel.First],
@@ -75,6 +88,7 @@ namespace Player
                 SpriteLevel.Third => sprites[(int)SpriteLevel.Third],
                 _ => clickButton.image.sprite
             };
+            _audioSource.Play();
         }
 
         
