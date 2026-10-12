@@ -92,7 +92,6 @@ namespace Interaction
                 wordSpawner.SetSpawnRate(currentCheck.spawnRate);
             }
         }
-
         private void OnDisable()
         {
             if(_coroutine == null) return;

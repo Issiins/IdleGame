@@ -1,4 +1,5 @@
-﻿using EditorScripts;
+﻿using System;
+using EditorScripts;
 using Interaction;
 using Player;
 using UI;
@@ -23,6 +24,9 @@ namespace Buttons
 
         public void OnPressPlayButton()
         {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();               
             SceneManager.LoadScene(playScene.name);
         }
         public void OnPressLoadButton()
