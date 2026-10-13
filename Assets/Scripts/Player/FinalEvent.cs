@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Interaction;
 using UI.WordWaterfall;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 namespace Player
@@ -15,29 +13,36 @@ namespace Player
         {
             First, Second, Third
         }
-        
+        #region Constants 
+        private static readonly int[] _clickCountStage = {10,20,30,40 };
+        private static readonly int Trigger = Animator.StringToHash("Break");
+        #endregion
+        [Header("References")]
         [SerializeField] PointController pointController;
-        [SerializeField] private float pointUpdateDuration;
         [SerializeField] private Button clickButton;
         [SerializeField] private GameObject heartPieces;
         [SerializeField] private WordSpawner wordSpawner;
         [SerializeField] private InputController inputController;
         
-        [Header("Random number range")] 
+        [Header("Point system")] 
+        [SerializeField] private float pointUpdateDuration;
         [SerializeField] private float min;
         [SerializeField] private float max;
         
-        [Header("Other settings")]
+        [Header("Visuals and Audio")]
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private AudioClip breakingGlassSFX;
-        private Animator _animator;
-        private static readonly int[] _clickCountStage = {10,20,30,40 };
-        private static readonly int Trigger = Animator.StringToHash("Break");
+        #region Runtime state
         private int _clickCount = 0;
         private SpriteLevel? _currentLevel;
         private WaitForSeconds _wt;
         private Coroutine _coroutine;
+        #endregion
+        
+        #region Cached components
+        private Animator _animator;
         private AudioSource _audioSource;
+        #endregion
         private void Awake()
         {
             pointController.GetUpgradeContainer().FinalEvent += StartFinalMotion;
