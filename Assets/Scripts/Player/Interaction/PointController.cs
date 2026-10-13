@@ -78,12 +78,12 @@ namespace Interaction
         {
             if (defaultInsanityValue.min >= points && points <= defaultInsanityValue.max)
             {
-                wordSpawner.SetActive(false);
+                wordSpawner.SetSpawningStatus(false);
                 heart.SetPauseDuration(defaultInsanityValue.pauseDuration);
                 heart.SetPulseDuration(defaultInsanityValue.pulseDuration);
                 return;
             }
-            wordSpawner.SetActive(true);
+            wordSpawner.SetSpawningStatus(true);
             foreach (var currentCheck in insanityValuesList)
             {
                 if (!(points >= currentCheck.min) || !(points < currentCheck.max)) continue;

@@ -45,7 +45,7 @@ namespace UI.WordWaterfall
         {
             StopCoroutine(_spawningRoutine);
         }
-        public void SetActive(bool currentValue) => _spawnActive = currentValue;
+        public void SetSpawningStatus(bool newStatus) => _spawnActive = newStatus;
 
         public void SetSpawnRate(float rate)
         {

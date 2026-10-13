@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Interaction;
+using UI.WordWaterfall;
 using UnityEngine.UI;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -18,6 +19,7 @@ namespace Player
         [SerializeField] private float pointUpdateDuration;
         [SerializeField] private Button clickButton;
         [SerializeField] private GameObject heartPieces;
+        [SerializeField] private WordSpawner wordSpawner;
         
         [Header("Random number range")] 
         [SerializeField] private float min;
@@ -113,7 +115,7 @@ namespace Player
             clickButton.gameObject.SetActive(false);
             heartPieces.SetActive(true);
             _animator.SetBool(Trigger, true);
-            
+            wordSpawner.SetSpawningStatus(false);
             // Add fade to black screen.
         }
         
