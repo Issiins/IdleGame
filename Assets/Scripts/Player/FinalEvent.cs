@@ -17,6 +17,7 @@ namespace Player
         [SerializeField] PointController pointController;
         [SerializeField] private float pointUpdateDuration;
         [SerializeField] private Button clickButton;
+        [SerializeField] private GameObject heartPieces;
         
         [Header("Random number range")] 
         [SerializeField] private float min;
@@ -25,7 +26,9 @@ namespace Player
         [Header("Other settings")]
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private AudioClip breakingGlassSFX;
-        private static readonly int[] _clickCountStage = {10,20,30 };
+        private Animator _animator;
+        private static readonly int[] _clickCountStage = {10,20,30,40 };
+        private static readonly int Trigger = Animator.StringToHash("Break");
         private int _clickCount = 0;
         private SpriteLevel? _currentLevel;
         private WaitForSeconds _wt;
@@ -37,6 +40,8 @@ namespace Player
             _wt = new WaitForSeconds(pointUpdateDuration);
             _audioSource = GetComponent<AudioSource>();
             _audioSource.clip = breakingGlassSFX;
+            _animator = heartPieces.GetComponent<Animator>();
+            heartPieces.SetActive(false);
         }
 
         private void StartFinalMotion()
@@ -66,15 +71,27 @@ namespace Player
         {
             _clickCount++;
 
-            var level = _clickCount switch
+            SpriteLevel? level;
+            switch (_clickCount)
             {
-                _ when _clickCount >= _clickCountStage[2] => SpriteLevel.Third,
-                _ when _clickCount >= _clickCountStage[1] => SpriteLevel.Second,
-                _ when _clickCount >= _clickCountStage[0] => SpriteLevel.First,
-                _ => _currentLevel
-            };
+                case var _ when _clickCount >= _clickCountStage[3]:
+                    StartEnding();
+                    return;
+                case var _ when _clickCount >= _clickCountStage[2]:
+                    level = SpriteLevel.Third;
+                    break;
+                case var _ when _clickCount >= _clickCountStage[1]:
+                    level = SpriteLevel.Second;
+                    break;
+                case var _ when _clickCount >= _clickCountStage[0]:
+                    level = SpriteLevel.First;
+                    break;
+                default:
+                    level = _currentLevel;
+                    break;
+            }
+
             UpdateButtonSprite(level);
-            Debug.Log($"clicked {_clickCount})");
         }
 
         private void UpdateButtonSprite(SpriteLevel? spriteLevel)
@@ -91,6 +108,14 @@ namespace Player
             _audioSource.Play();
         }
 
+        private void StartEnding()
+        {
+            clickButton.gameObject.SetActive(false);
+            heartPieces.SetActive(true);
+            _animator.SetBool(Trigger, true);
+            
+            // Add fade to black screen.
+        }
         
         private void OnDisable()
         {
