@@ -3,6 +3,7 @@ using Interaction;
 using UI.WordWaterfall;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Player
@@ -16,6 +17,7 @@ namespace Player
         #region Constants 
         private static readonly int[] _clickCountStage = {10,20,30,40 };
         private static readonly int Trigger = Animator.StringToHash("Break");
+        private static readonly int FadeIn = Animator.StringToHash("FadeIn");
         #endregion
         [Header("References")]
         [SerializeField] PointController pointController;
@@ -29,7 +31,8 @@ namespace Player
         [SerializeField] private float min;
         [SerializeField] private float max;
         
-        [Header("Visuals and Audio")]
+        [Header("Visuals and Audio")] 
+        [SerializeField] private Animator fadeScreen;
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private AudioClip breakingGlassSFX;
         #region Runtime state
@@ -124,15 +127,22 @@ namespace Player
             heartPieces.SetActive(true);
             _animator.SetBool(Trigger, true);
             wordSpawner.SetSpawningStatus(false);
-            // Add fade to black screen.
+            StartCoroutine(StartFadeIn());
             inputController.EnableDeviceInput();
+            SceneManager.LoadScene("Main");
+        }
+
+        private IEnumerator StartFadeIn()
+        {
+            fadeScreen.SetBool(FadeIn, true);
+            yield return new WaitForSeconds(fadeScreen.recorderStopTime+3f);
         }
         
         private void OnDisable()
         {
             pointController.GetUpgradeContainer().FinalEvent -= StartFinalMotion;
             if(_coroutine == null) return;
-            StopCoroutine(_coroutine);
+            StopAllCoroutines();
         }
     }
 }

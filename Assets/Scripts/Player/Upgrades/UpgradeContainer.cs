@@ -44,6 +44,7 @@ namespace Upgrades
             upgrade.LevelUp();
             UpdateMultiplier();
             OnUpgradePurchased?.Invoke();
+            // TODO Create other solution. Since this solution won't work on loading the save.
             if(!upgrade.Data.name.Equals(FinalUpgradeName)) return;
             FinalEvent?.Invoke();
         }
