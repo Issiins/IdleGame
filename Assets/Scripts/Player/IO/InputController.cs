@@ -46,5 +46,17 @@ namespace Player
         }
         private void OnBack(InputAction.CallbackContext ctx) => stateMachine.Escape();
         private void OnShopMenu(InputAction.CallbackContext ctx) => stateMachine.ToggleShop();
+
+        public void DisableDeviceInput()
+        {
+            InputSystem.DisableDevice(Mouse.current);
+            InputSystem.DisableDevice(Keyboard.current);
+        }
+
+        public void EnableDeviceInput()
+        {
+            InputSystem.EnableDevice(Mouse.current);
+            InputSystem.EnableDevice(Keyboard.current);
+        }
     }
 }

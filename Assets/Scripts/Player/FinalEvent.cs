@@ -4,6 +4,7 @@ using Interaction;
 using UI.WordWaterfall;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 namespace Player
@@ -20,6 +21,7 @@ namespace Player
         [SerializeField] private Button clickButton;
         [SerializeField] private GameObject heartPieces;
         [SerializeField] private WordSpawner wordSpawner;
+        [SerializeField] private InputController inputController;
         
         [Header("Random number range")] 
         [SerializeField] private float min;
@@ -112,11 +114,13 @@ namespace Player
 
         private void StartEnding()
         {
+            inputController.DisableDeviceInput();
             clickButton.gameObject.SetActive(false);
             heartPieces.SetActive(true);
             _animator.SetBool(Trigger, true);
             wordSpawner.SetSpawningStatus(false);
             // Add fade to black screen.
+            inputController.EnableDeviceInput();
         }
         
         private void OnDisable()
