@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Interaction;
+using UI;
 using UI.WordWaterfall;
 using UnityEngine.UI;
 using UnityEngine;
@@ -33,6 +34,7 @@ namespace Player
         
         [Header("Visuals and Audio")] 
         [SerializeField] private Animator fadeScreen;
+        [SerializeField] private float holdOnSceen;
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private AudioClip breakingGlassSFX;
         #region Runtime state
@@ -45,6 +47,8 @@ namespace Player
         #region Cached components
         private Animator _animator;
         private AudioSource _audioSource;
+        private AnimationFinished _breakDone;
+        private AnimationFinished _fadeDone;
         #endregion
         private void Awake()
         {
@@ -125,23 +129,33 @@ namespace Player
             inputController.DisableDeviceInput();
             clickButton.gameObject.SetActive(false);
             heartPieces.SetActive(true);
-            _animator.SetBool(Trigger, true);
             wordSpawner.SetSpawningStatus(false);
-            StartCoroutine(StartFadeIn());
+            _breakDone = _animator.GetBehaviour<AnimationFinished>();
+            _breakDone.Finished += OnBreakFinished;
+            _animator.SetBool(Trigger, true);
+        }
+        private void OnBreakFinished()
+        {
+            _breakDone.Finished -= OnBreakFinished;
+            _fadeDone = fadeScreen.GetBehaviour<AnimationFinished>();
+            _fadeDone.Finished += OnFadeFinished;
+            fadeScreen.SetTrigger(FadeIn);
+        }
+        private void OnFadeFinished()
+        {
+            _fadeDone.Finished -= OnFadeFinished;
+            StartCoroutine(ReturnToMain());
+        }
+        private IEnumerator ReturnToMain()
+        {
+            yield return new WaitForSeconds(holdOnSceen);
             inputController.EnableDeviceInput();
             SceneManager.LoadScene("Main");
-        }
-
-        private IEnumerator StartFadeIn()
-        {
-            fadeScreen.SetBool(FadeIn, true);
-            yield return new WaitForSeconds(fadeScreen.recorderStopTime+3f);
         }
         
         private void OnDisable()
         {
             pointController.GetUpgradeContainer().FinalEvent -= StartFinalMotion;
-            if(_coroutine == null) return;
             StopAllCoroutines();
         }
     }
