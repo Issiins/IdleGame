@@ -1040,7 +1040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.06732178, y: -0.95181274}
+  m_AnchoredPosition: {x: 0.06726074, y: -0.95184326}
   m_SizeDelta: {x: 18.885, y: 14.5035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421316427
@@ -1262,17 +1262,17 @@ MonoBehaviour:
     max: 5000
     pauseDuration: 0.75
     pulseDuration: 0.2
-    spawnRate: 3
+    spawnRate: 2
   - min: 5000
     max: 10000
-    pauseDuration: 0.5
-    pulseDuration: 0.18
-    spawnRate: 1.2
-  - min: 10000
-    max: 12000
-    pauseDuration: 0.2
+    pauseDuration: 0.3
     pulseDuration: 0.15
     spawnRate: 0.5
+  - min: 10000
+    max: 12000
+    pauseDuration: 0.1
+    pulseDuration: 0.11
+    spawnRate: 0.1
 --- !u!4 &537148996
 Transform:
   m_ObjectHideFlags: 0
