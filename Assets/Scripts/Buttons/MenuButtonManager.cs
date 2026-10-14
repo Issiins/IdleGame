@@ -3,12 +3,19 @@ using Interaction;
 using Player;
 using UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 namespace Buttons
 {
     public class MenuButtonManager : MonoBehaviour
     {
         [SerializeField] private string playScene;
+
+        private void Awake()
+        {
+            InputSystem.EnableDevice(Mouse.current);
+            InputSystem.EnableDevice(Keyboard.current);
+        }
 
         public void OnPressQuitButton()
         {

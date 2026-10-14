@@ -19,10 +19,10 @@ namespace Player.Upgrade.UI
         private PointController _pointController;
         private void SetValues(UpgradeInstance upgrade)
         {
-            title.text = upgrade.Data.name;
-            description.text = upgrade.Data.description;
-            boost.text = upgrade.Data.boost;
-            icon.sprite = upgrade.Data.icon;
+            title.text = upgrade.data.name;
+            description.text = upgrade.data.description;
+            boost.text = upgrade.data.boost;
+            icon.sprite = upgrade.data.icon;
             FormatText(upgrade);
             purchaseButton = GetComponentInChildren<Button>();
             purchaseButton.onClick.AddListener(OnPurchaseClicked);
@@ -31,8 +31,8 @@ namespace Player.Upgrade.UI
         private string CostFormat(int currCost) => $"Cost: \n{currCost}p";
         private void FormatText(UpgradeInstance upgrade)
         {
-            cost.text = CostFormat(upgrade.CurrentCost);
-            level.text = LevelFormat(upgrade.Level, upgrade.Data.maxLevel);
+            cost.text = CostFormat(upgrade.currentCost);
+            level.text = LevelFormat(upgrade.level, upgrade.data.maxLevel);
         }
         
         public void Setup(UpgradeInstance upgrade, PointController container)
@@ -49,7 +49,7 @@ namespace Player.Upgrade.UI
         {
             FormatText(_upgrade);
             bool unlocked = _upgrade.IsUnlockable(_pointController.GetUpgrades());
-            bool isMaxedLevel = _upgrade.Level == _upgrade.Data.maxLevel;
+            bool isMaxedLevel = _upgrade.level == _upgrade.data.maxLevel;
             gameObject.SetActive(unlocked);
             if(!unlocked) return;
             if(!isMaxedLevel)

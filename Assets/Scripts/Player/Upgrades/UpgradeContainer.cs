@@ -32,14 +32,14 @@ namespace Upgrades
             _stats.Reset();
             foreach (var upgrade in _upgrades)
             {
-                upgrade.Data.effect.Apply(upgrade.Level, _stats, upgrade.Data.multiplier);
-                if (!upgrade.Data.name.Equals(FinalUpgradeName) || !upgrade.IsPurchased) continue;
+                upgrade.data.effect.Apply(upgrade.level, _stats, upgrade.data.multiplier);
+                if (!upgrade.data.name.Equals(FinalUpgradeName) || !upgrade.isPurchased) continue;
                 FinalEvent?.Invoke();
             }
         }
         public void TryPurchase(UpgradeInstance upgrade, PointController pointController)
         {
-            var success = pointController.TrySpendPoints(upgrade.CurrentCost);
+            var success = pointController.TrySpendPoints(upgrade.currentCost);
             if(!success) return;
             _pointUiController.UpdateValue();
             upgrade.LevelUp();
