@@ -225,9 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.States.StateMachineController
   shopMenu: {fileID: 421316425}
   popMenu: {fileID: 854951841}
-  mainMenu:
-    sceneAsset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
-    sceneName: 
+  mainMenu: Main
 --- !u!4 &35414578
 Transform:
   m_ObjectHideFlags: 0
@@ -4618,6 +4616,7 @@ MonoBehaviour:
   - {fileID: -147258104820998337, guid: 1c06521e9221583419e4bacf56f2ee0d, type: 3}
   - {fileID: -4459161595745797571, guid: 1c06521e9221583419e4bacf56f2ee0d, type: 3}
   breakingGlassSFX: {fileID: 8300000, guid: ecae7c72ad521e44c9e061ef88f437a5, type: 3}
+  mainScene: 
 --- !u!4 &2088388824
 Transform:
   m_ObjectHideFlags: 0

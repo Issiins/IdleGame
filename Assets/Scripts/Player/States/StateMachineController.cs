@@ -1,4 +1,4 @@
-﻿using EditorScripts;
+﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +8,7 @@ namespace Player.States
     {
         [SerializeField] private GameObject shopMenu;
         [SerializeField] private GameObject popMenu;
-        [SerializeField] private SceneReference mainMenu;
+        [SerializeField] private string mainMenu;
         private StateMachine _stateMachine;
         private OnGameState _onGameState;
         private OnMenuState _exitPopState;
@@ -35,7 +35,14 @@ namespace Player.States
             if (InGame) _stateMachine.ChangeState(_exitPopState);
             else _stateMachine.ChangeState(_onGameState);
         }
-        public void ConfirmExit() => SceneManager.LoadScene(mainMenu.name);
+        public void ConfirmExit()
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();     
+            SceneManager.LoadScene(mainMenu);
+        }
+
         public void ConfirmDeny() => popMenu.SetActive(false);
     }
 }

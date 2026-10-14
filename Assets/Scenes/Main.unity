@@ -265,9 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1060fa81e24ee2a1d5d0fa2d089126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Buttons.Quit
-  playScene:
-    sceneAsset: {fileID: 0}
-    sceneName: 
+  playScene: 
 --- !u!1 &401941499
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,9 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1060fa81e24ee2a1d5d0fa2d089126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Buttons.MenuButtonManager
-  playScene:
-    sceneAsset: {fileID: 102900000, guid: 6276acc11fcbda441b2732f172782de4, type: 3}
-    sceneName: PlayScene
+  playScene: PlayScene
 --- !u!1 &479262549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,9 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1060fa81e24ee2a1d5d0fa2d089126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Buttons.MenuButtonManager
-  playScene:
-    sceneAsset: {fileID: 102900000, guid: 6276acc11fcbda441b2732f172782de4, type: 3}
-    sceneName: PlayScene
+  playScene: PlayScene
 --- !u!1 &1065389880
 GameObject:
   m_ObjectHideFlags: 0

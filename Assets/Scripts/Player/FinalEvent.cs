@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Interaction;
 using UI;
 using UI.WordWaterfall;
@@ -37,6 +38,9 @@ namespace Player
         [SerializeField] private float holdOnSceen;
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private AudioClip breakingGlassSFX;
+        
+        [Header("Scene References")]
+        [SerializeField] private string mainScene;
         #region Runtime state
         private int _clickCount = 0;
         private SpriteLevel? _currentLevel;
@@ -150,7 +154,10 @@ namespace Player
         {
             yield return new WaitForSeconds(holdOnSceen);
             inputController.EnableDeviceInput();
-            SceneManager.LoadScene("Main");
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();     
+            SceneManager.LoadScene(mainScene);
         }
         
         private void OnDisable()

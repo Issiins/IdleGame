@@ -1,5 +1,4 @@
 ﻿using System;
-using EditorScripts;
 using Interaction;
 using Player;
 using UI;
@@ -9,13 +8,7 @@ namespace Buttons
 {
     public class MenuButtonManager : MonoBehaviour
     {
-        [SerializeField] private SceneReference playScene;
-        private void OnValidate()
-        {
-            #if UNITY_EDITOR
-            playScene.Validate();
-            #endif
-        }
+        [SerializeField] private string playScene;
 
         public void OnPressQuitButton()
         {
@@ -27,7 +20,7 @@ namespace Buttons
             GC.Collect();
             GC.WaitForPendingFinalizers();
             GC.Collect();               
-            SceneManager.LoadScene(playScene.name);
+            SceneManager.LoadScene(playScene);
         }
         public void OnPressLoadButton()
         {
