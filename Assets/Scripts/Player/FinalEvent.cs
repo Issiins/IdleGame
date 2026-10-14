@@ -66,8 +66,8 @@ namespace Player
 
         private void StartFinalMotion()
         {
-            pointController.ChangeRunningStatus(false);
             _coroutine = StartCoroutine(ShowRandomNumbers());
+            pointController.ChangeRunningStatus(false);
             ChangeButtonListener();
         }
 

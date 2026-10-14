@@ -36,7 +36,7 @@ namespace Interaction
         private Coroutine _coroutine;
         private readonly PlayerStats _stats = new();
         private readonly WaitForSeconds _waitTime = new(1f);  // 1 second
-        private bool _isRunning;
+        private bool _isRunning = true;
 
         private void Awake()
         {
@@ -46,7 +46,7 @@ namespace Interaction
 
         private void Start()
         {
-            _isRunning = true;
+            if(!_isRunning) return;
             _coroutine = StartCoroutine(Accumalate());
         }
         public void OnClick()
@@ -102,6 +102,6 @@ namespace Interaction
         public UpgradeContainer GetUpgradeContainer() => _upgradeContainer;
         public PointUiController GetPointUIController() => pointUIController;
         public void SetPoints(float amount) => points = amount;
-        public void ChangeRunningStatus(bool isRunning) => _isRunning = isRunning;
+        public void ChangeRunningStatus(bool newStatus) => _isRunning = newStatus;
     }
 }

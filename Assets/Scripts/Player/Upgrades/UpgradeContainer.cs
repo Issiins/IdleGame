@@ -33,9 +33,10 @@ namespace Upgrades
             foreach (var upgrade in _upgrades)
             {
                 upgrade.Data.effect.Apply(upgrade.Level, _stats, upgrade.Data.multiplier);
+                if (!upgrade.Data.name.Equals(FinalUpgradeName) || !upgrade.IsPurchased) continue;
+                FinalEvent?.Invoke();
             }
         }
-
         public void TryPurchase(UpgradeInstance upgrade, PointController pointController)
         {
             var success = pointController.TrySpendPoints(upgrade.CurrentCost);
@@ -44,9 +45,6 @@ namespace Upgrades
             upgrade.LevelUp();
             UpdateMultiplier();
             OnUpgradePurchased?.Invoke();
-            // TODO Create other solution. Since this solution won't work on loading the save.
-            if(!upgrade.Data.name.Equals(FinalUpgradeName)) return;
-            FinalEvent?.Invoke();
         }
         private void ReverseSort()
         {
