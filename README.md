@@ -92,4 +92,4 @@ Assets/
 | Heart Beat | [ChamoneSteyn](https://freesound.org/people/ChamoneSteyn/) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Link](https://freesound.org/people/ChamoneSteyn/sounds/542218/) |
 | Glass Breaking | [HenKonen](https://freesound.org/people/HenKonen/) | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | [Link](https://freesound.org/people/HenKonen/sounds/757209/) |
 
-** Other assets were made by me **
+**Other assets were made by me**
