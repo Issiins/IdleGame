@@ -137,6 +137,9 @@ namespace Player
             _breakDone = _animator.GetBehaviour<AnimationFinished>();
             _breakDone.Finished += OnBreakFinished;
             _animator.SetBool(Trigger, true);
+            _audioSource.volume = 0.9f;
+            _audioSource.reverbZoneMix = 1f;
+            _audioSource.Play();
         }
         private void OnBreakFinished()
         {
